@@ -5,26 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Usage Meter for Claude</title>
 <style>
-  :root { --bg: #fff; --fg: #222; --muted: #666; --accent: #c96442; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #111; --fg: #e5e5e5; --muted: #999; --accent: #e08a6a; } }
+  :root { --bg: #fff; --fg: #222; --muted: #666; --accent: #c96442; --card: #f5f4f0; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #111; --fg: #e5e5e5; --muted: #999; --accent: #e08a6a; --card: #1c1c1a; } }
   body { background: var(--bg); color: var(--fg); font-family: -apple-system, 'Segoe UI', sans-serif; line-height: 1.6; max-width: 720px; margin: 0 auto; padding: 48px 16px; }
   header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
-  header img { width: 64px; height: 64px; }
+  header img { width: 64px; height: 64px; border-radius: 14px; }
   h1 { font-size: 28px; margin: 0; }
   a { color: var(--accent); }
   li { margin: 4px 0; }
+  .stores { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0; }
+  .store { display: inline-block; background: var(--card); border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: 12px 18px; text-decoration: none; color: var(--fg); font-weight: 600; }
+  .store small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
   .muted { color: var(--muted); font-size: 13px; margin-top: 40px; }
 </style>
 </head>
 <body>
-<header><img src="data:image/png;base64,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" alt=""><h1>Usage Meter for Claude</h1></header>
+<header><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAkFBMVEX///////7+/fn8/Pz7+/v18uuw0bYizmEixV4iwl0eyWD2ohDumgyko6CQj46QjYeGhYMio1CBbEdMSEMiYjdGQjw9OzQqKyMlIh4jIR4jIR0fIRwjIBoiIB4iIB0iIBwfIBshHxsgHhsfHxsgHRofHRsfHRoeHRoeGxkbGRceFBUTExMSDwwQDgsfChIPDQpRDmWCAAADt0lEQVR42s2Xa3eiMBCGERqQKpZromtNDeniBOL6///dTrgJ1Hrrftj3tHKOx3mYySSTGcsaaOa83CFnZl2W41h36uIvzZfEDVY3FbjkEgK/cEOq9OmmtKKxWxuM7Umsjirnm5viudIqIWOCY7lM57u8uEs5F3odDAmOFVRqUzygjdKrMwHfXxWieEgi170Pzoww9aA9EuCjWwfHivWmeFgbnTQADODx99c+VG5NcKzwuHsGwHVsADOLUJU/A8gVI2huInjKvovhxQo0fw6wOwZo/mKtTt/kQO73UgqjxsXueQaEVwBSQmmkKhQIUeRCVeN08SuAfVGWW5amURSj6LqqDgfFKKvuA+DLt2nke0YLo+Uyez/E+IzV5x0AWe7TyPPmc9+f+0ujmoH/i0VciVsAWZRo/orGqFd/2XjQmC8Xy8MtDyRA6nm19RnQemAA68PnVYCEbeT5rb2PaiNo3ECAuh5CY9+azweL2PqxoDcAsO/sMQd+lKZpFsfNAizxuUzoO1wDyLK1x7dHKTMbCbeRYrFZf5plNEvoNcC+TFt7b57uSzB7WYh33IIQu0nWiPVn7wtAAuvc91mJu7E/du/HIGQdYQ3fAtoAavvt4OBjASVK0BZAIb8MkCVrsz+xF/rNSnS+ySYuTAHdCvheOrQ3v5th0cEC1LnQrsIUAFv/tbaPSjlwn59CmyQVxxLWBSHgEkB2KfBYD8B7UJ1CQoLKFC1Yd4loVmEMkNs/NQAdANkXPUUZ2pOsPoOfQEcxjACyBBY1gLTcd/aJi9bEbqtmvwp0XcAEgBmI2iPQR4B13ya2jYRu1foYMspgBDBbyGvOH+YQ+rJPyOptCPjIskEuB4B+D+Px87fQOUBIfDrFxA6PbeH/nSXZOZdDD8o2fnP+ZJ9+mzAQjNhvHaBgjHULCZ9fPfA99qcsz1cfIeEJs2iH/dUDoJp1SNjIg8LUEQwgAjx/g6sPd0CAH+cDmOc5UAwjoQLGWcAkYv3YwujqSzAJdrMNBwJGKeUw3Qd4FWxLmFyeWeC6QVJN2gdV5AAXtjKAnHYAlf610dXH9F6v/65fbZ0PHIB/277cATCrdqVFuQdwtcf5bwBPtzibusX5cZP14zav7nT5DxrNuld/qtXlbauLH8kzzTbXyczp2v0NPOwDnie3Hxgwk/mjA4c4BcORZaXhoSg4nFaToYlrwe8eurg+BNOxDeuOVoLv+A3tuFAab5yvg6Plxqw63qGKXRg8TS7q0Te8qXr0nTn/fvh+dvz/C7eArXm0tJo+AAAAAElFTkSuQmCC" alt=""><h1>Usage Meter for Claude</h1></header>
 <p>A browser extension that shows your Claude.ai usage limits right in the toolbar.</p>
+<div class="stores">
+  <a class="store" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib"><small>Get it for</small>Google Chrome</a>
+  <a class="store" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog"><small>Get it for</small>Microsoft Edge</a>
+</div>
 <ul>
   <li>Current session and weekly limit on the toolbar icon</li>
   <li>Reset times and a forecast of when you'll run out</li>
-  <li>Notifications at chosen thresholds and when a limit resets</li>
-  <li>PRO: history chart, weekly overview, several accounts, CSV export</li>
+  <li>Usage right on claude.ai – under the message box and in the sidebar</li>
+  <li>Notifications at chosen thresholds, when a limit resets and before a free reset expires</li>
+  <li>History and weekly overview, available in 27 languages</li>
+  <li>PRO: longer history, several accounts at once, CSV export</li>
 </ul>
+<p>Works with Claude Pro, Max and Team plans (the free plan doesn't provide usage data).</p>
 <p><a href="privacy.html">Privacy policy</a> · <a href="mailto:usagemeter.claude@gmail.com">usagemeter.claude@gmail.com</a></p>
 <p class="muted">Unofficial extension, not affiliated with or endorsed by Anthropic. Claude is a trademark of Anthropic, PBC.</p>
 </body>
