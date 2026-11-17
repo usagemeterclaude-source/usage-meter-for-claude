@@ -3,39 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Usage Meter for Claude</title>
+<title>Claude Usage Limit Tracker – Usage Meter for Claude (Chrome, Edge, Firefox)</title>
+<meta name="description" content="Free browser extension that shows your Claude usage limits in the toolbar: 5-hour session and weekly limits, Claude Code usage, alerts and a forecast of when you'll run out.">
+<link rel="canonical" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/">
+<link rel="icon" href="assets/icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Usage Meter for Claude – never hit the Claude usage limit by surprise">
+<meta property="og:description" content="Session and weekly Claude limits in your toolbar, with a run-out forecast and alerts. Free for Chrome, Edge and Firefox.">
+<meta property="og:url" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/">
+<meta property="og:image" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Usage Meter for Claude", "applicationCategory": "BrowserApplication", "operatingSystem": "Chrome, Microsoft Edge, Firefox", "description": "Claude usage limit tracker: session and weekly limits in the browser toolbar, Claude Code limits, alerts and a forecast of when you run out.", "url": "https://usagemeterclaude-source.github.io/usage-meter-for-claude/", "image": "https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I check my Claude usage limit?", "acceptedAnswer": {"@type": "Answer", "text": "On claude.ai you can open Settings → Usage. Usage Meter for Claude shows the same numbers all the time: the percentage is on the toolbar icon and the popup shows the current session, the weekly limit and when each one resets – without opening any settings page."}}, {"@type": "Question", "name": "What is the Claude 5-hour session limit?", "acceptedAnswer": {"@type": "Answer", "text": "Claude Pro and Max plans have a usage limit per session that resets 5 hours after the session starts, plus a weekly limit across all models. The extension shows both, including per-model weekly limits, and tells you when a new session starts."}}, {"@type": "Question", "name": "Does it work with Claude Code?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Claude Code uses the same limits as claude.ai, so its usage is included in the session and weekly numbers – also usage from the desktop app and your phone. The extension refreshes in the background even when claude.ai isn't open."}}, {"@type": "Question", "name": "Is it free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The usage on the icon, the popup, notifications, the run-out forecast, usage on claude.ai and 7 days of history are free. PRO (€0.99/month or €7.99/year, 7-day free trial) adds 30 and 60-day history, several accounts at once and CSV export."}}, {"@type": "Question", "name": "Which Claude plans are supported?", "acceptedAnswer": {"@type": "Answer", "text": "Claude Pro, Max and Team. The free Claude plan doesn't provide usage data, so there is nothing to show."}}, {"@type": "Question", "name": "Is my data safe?", "acceptedAnswer": {"@type": "Answer", "text": "The extension only reads your own usage percentages from claude.ai using the session you're already signed in with. It never reads your conversations, and nothing is sent to the developer – everything stays in your browser. No analytics, no tracking."}}]}]</script>
 <style>
-  :root { --bg: #fff; --fg: #222; --muted: #666; --accent: #c96442; --card: #f5f4f0; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #111; --fg: #e5e5e5; --muted: #999; --accent: #e08a6a; --card: #1c1c1a; } }
-  body { background: var(--bg); color: var(--fg); font-family: -apple-system, 'Segoe UI', sans-serif; line-height: 1.6; max-width: 720px; margin: 0 auto; padding: 48px 16px; }
-  header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
-  header img { width: 64px; height: 64px; border-radius: 14px; }
-  h1 { font-size: 28px; margin: 0; }
-  a { color: var(--accent); }
-  li { margin: 4px 0; }
-  .stores { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0; }
-  .store { display: inline-block; background: var(--card); border: 1px solid rgba(128,128,128,.3); border-radius: 10px; padding: 12px 18px; text-decoration: none; color: var(--fg); font-weight: 600; }
-  .store small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
-  .muted { color: var(--muted); font-size: 13px; margin-top: 40px; }
+  :root { --bg: #1a1816; --card: #24211e; --line: #34302b; --fg: #fff; --muted: #cfc9bf; --dim: #9d968c; --accent: #d97757; --accent2: #e08a6a; }
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: radial-gradient(circle at 80% 0, rgba(217,119,87,.30), transparent 40%) no-repeat, var(--bg); color: var(--fg); font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; line-height: 1.5; }
+  a { color: var(--accent2); }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; align-items: center; gap: 10px; padding: 22px 0; font-weight: 600; }
+  nav img { width: 30px; height: 30px; }
+  nav .links { margin-left: auto; display: flex; gap: 24px; font-size: 14px; font-weight: 400; }
+  nav .links a { color: var(--muted); text-decoration: none; }
+  .hero { display: flex; gap: 48px; align-items: center; padding: 36px 0 70px; }
+  .hero .L { flex: 0 0 460px; }
+  h1 { font-size: 50px; line-height: 1.08; letter-spacing: -1px; }
+  h1 em, h2 em { font-style: normal; color: var(--accent2); }
+  .lead { font-size: 19px; color: var(--muted); margin: 20px 0 26px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-block; border-radius: 10px; padding: 13px 20px; font-weight: 700; text-decoration: none; color: #fff; border: 1px solid #6b5f55; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); }
+  .btn:hover { filter: brightness(1.1); }
+  .note { font-size: 13px; color: var(--dim); margin-top: 14px; }
+  .R { flex: 1; min-width: 0; position: relative; padding-right: 110px; }
+  .win { background: #fff; border-radius: 10px; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
+  .strip { height: 34px; background: #dfe3e8; border-radius: 10px 10px 0 0; display: flex; align-items: flex-end; padding-left: 8px; }
+  .tab { background: #fff; border-radius: 8px 8px 0 0; height: 28px; width: 190px; display: flex; align-items: center; gap: 8px; padding: 0 10px; font-size: 12px; color: #222; }
+  .tab b { color: var(--accent); } .tab i { margin-left: auto; font-style: normal; color: #777; }
+  .ctl { margin-left: auto; padding: 0 14px 8px; font-size: 12px; color: #333; letter-spacing: 8px; }
+  .bar { height: 36px; display: flex; align-items: center; gap: 10px; padding: 0 10px; font-size: 13px; color: #666; border-bottom: 1px solid #e5e5e5; }
+  .url { flex: 1; background: #f1f3f4; border-radius: 14px; padding: 5px 12px; color: #333; }
+  .ext { display: flex; align-items: center; gap: 4px; color: #16a34a; font-weight: 700; font-size: 12px; }
+  .ext img { width: 18px; height: 18px; }
+  .cl { display: block; width: 100%; height: auto; border-radius: 0 0 10px 10px; }
+  .pop { position: absolute; right: 0; top: 30px; width: 220px; height: auto; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+  section { padding: 50px 0; }
+  h2 { font-size: 34px; letter-spacing: -.5px; margin-bottom: 26px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; color: var(--muted); font-size: 15px; }
+  .card b { display: block; color: #fff; font-size: 17px; margin: 8px 0 6px; }
+  .card .i { display: inline-flex; width: 34px; height: 34px; border-radius: 9px; background: rgba(217,119,87,.18); color: var(--accent2); align-items: center; justify-content: center; font-size: 18px; }
+  .steps { counter-reset: s; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .steps div { counter-increment: s; color: var(--muted); }
+  .steps div::before { content: counter(s); display: inline-flex; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; align-items: center; justify-content: center; margin-bottom: 10px; }
+  .steps b { display: block; color: #fff; }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px; }
+  summary { cursor: pointer; font-weight: 600; font-size: 17px; }
+  details p { color: var(--muted); margin-top: 10px; }
+  .cta { text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 44px 24px; }
+  .cta .btns { justify-content: center; }
+  footer { color: var(--dim); font-size: 13px; padding: 40px 0 50px; border-top: 1px solid var(--line); margin-top: 30px; }
+  footer a { color: var(--muted); }
+  @media (max-width: 980px) {
+    .hero { flex-direction: column; align-items: stretch; }
+    .hero .L { flex: none; }
+    .grid, .steps { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    h1 { font-size: 36px; } h2 { font-size: 27px; }
+    nav .links { display: none; }
+    .grid, .steps { grid-template-columns: 1fr; }
+    .R { padding-right: 0; }
+    .pop { position: static; display: block; width: 70%; margin: -40px auto 0; }
+    .ctl, .tab { display: none; }
+  }
 </style>
 </head>
 <body>
-<header><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAkFBMVEX///////7+/fn8/Pz7+/v18uuw0bYizmEixV4iwl0eyWD2ohDumgyko6CQj46QjYeGhYMio1CBbEdMSEMiYjdGQjw9OzQqKyMlIh4jIR4jIR0fIRwjIBoiIB4iIB0iIBwfIBshHxsgHhsfHxsgHRofHRsfHRoeHRoeGxkbGRceFBUTExMSDwwQDgsfChIPDQpRDmWCAAADt0lEQVR42s2Xa3eiMBCGERqQKpZromtNDeniBOL6///dTrgJ1Hrrftj3tHKOx3mYySSTGcsaaOa83CFnZl2W41h36uIvzZfEDVY3FbjkEgK/cEOq9OmmtKKxWxuM7Umsjirnm5viudIqIWOCY7lM57u8uEs5F3odDAmOFVRqUzygjdKrMwHfXxWieEgi170Pzoww9aA9EuCjWwfHivWmeFgbnTQADODx99c+VG5NcKzwuHsGwHVsADOLUJU/A8gVI2huInjKvovhxQo0fw6wOwZo/mKtTt/kQO73UgqjxsXueQaEVwBSQmmkKhQIUeRCVeN08SuAfVGWW5amURSj6LqqDgfFKKvuA+DLt2nke0YLo+Uyez/E+IzV5x0AWe7TyPPmc9+f+0ujmoH/i0VciVsAWZRo/orGqFd/2XjQmC8Xy8MtDyRA6nm19RnQemAA68PnVYCEbeT5rb2PaiNo3ECAuh5CY9+azweL2PqxoDcAsO/sMQd+lKZpFsfNAizxuUzoO1wDyLK1x7dHKTMbCbeRYrFZf5plNEvoNcC+TFt7b57uSzB7WYh33IIQu0nWiPVn7wtAAuvc91mJu7E/du/HIGQdYQ3fAtoAavvt4OBjASVK0BZAIb8MkCVrsz+xF/rNSnS+ySYuTAHdCvheOrQ3v5th0cEC1LnQrsIUAFv/tbaPSjlwn59CmyQVxxLWBSHgEkB2KfBYD8B7UJ1CQoLKFC1Yd4loVmEMkNs/NQAdANkXPUUZ2pOsPoOfQEcxjACyBBY1gLTcd/aJi9bEbqtmvwp0XcAEgBmI2iPQR4B13ya2jYRu1foYMspgBDBbyGvOH+YQ+rJPyOptCPjIskEuB4B+D+Px87fQOUBIfDrFxA6PbeH/nSXZOZdDD8o2fnP+ZJ9+mzAQjNhvHaBgjHULCZ9fPfA99qcsz1cfIeEJs2iH/dUDoJp1SNjIg8LUEQwgAjx/g6sPd0CAH+cDmOc5UAwjoQLGWcAkYv3YwujqSzAJdrMNBwJGKeUw3Qd4FWxLmFyeWeC6QVJN2gdV5AAXtjKAnHYAlf610dXH9F6v/65fbZ0PHIB/277cATCrdqVFuQdwtcf5bwBPtzibusX5cZP14zav7nT5DxrNuld/qtXlbauLH8kzzTbXyczp2v0NPOwDnie3Hxgwk/mjA4c4BcORZaXhoSg4nFaToYlrwe8eurg+BNOxDeuOVoLv+A3tuFAab5yvg6Plxqw63qGKXRg8TS7q0Te8qXr0nTn/fvh+dvz/C7eArXm0tJo+AAAAAElFTkSuQmCC" alt=""><h1>Usage Meter for Claude</h1></header>
-<p>A browser extension that shows your Claude.ai usage limits right in the toolbar.</p>
-<div class="stores">
-  <a class="store" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib"><small>Get it for</small>Google Chrome</a>
-  <a class="store" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog"><small>Get it for</small>Microsoft Edge</a>
+<div class="wrap">
+<nav><img src="assets/icon.png" alt="">Usage Meter for Claude
+  <div class="links"><a href="#features">Features</a><a href="#how">How it works</a><a href="#faq">FAQ</a><a href="privacy.html">Privacy</a></div></nav>
+
+<div class="hero">
+  <div class="L">
+    <h1>Never hit the <em>Claude usage limit</em> by surprise</h1>
+    <p class="lead">A free browser extension that shows your Claude session and weekly limits right in the toolbar – with a forecast of when you'll run out, Claude Code usage and alerts before it's too late.</p>
+    <div class="btns" id="btns">
+      <a class="btn primary" data-b="chrome" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib">Add to Chrome – it's free</a>
+      <a class="btn" data-b="edge" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog">Edge</a>
+      <a class="btn" data-b="firefox" href="https://addons.mozilla.org/firefox/addon/usage-meter-for-claude-ai/">Firefox</a>
+    </div>
+    <p class="note">Works with Claude Pro, Max and Team · 27 languages · PRO from €0.99/month</p>
+  </div>
+  <div class="R">
+    <div class="win">
+      <div class="strip"><span class="tab"><b>✳</b> Claude <i>✕</i></span><span class="ctl">—☐✕</span></div>
+      <div class="bar">← → ↻ <span class="url">claude.ai</span> <span class="ext"><img src="assets/icon.png" alt="">70%</span></div>
+      <img class="cl" src="assets/claude.jpg" width="2304" height="1038" alt="Claude usage limits shown under the message box and in the sidebar on claude.ai">
+    </div>
+    <img class="pop" src="assets/popup.png" width="704" height="1386" alt="Usage Meter for Claude popup: current session 70 %, weekly limit 73 % and a forecast">
+  </div>
 </div>
-<ul>
-  <li>Current session and weekly limit on the toolbar icon</li>
-  <li>Reset times and a forecast of when you'll run out</li>
-  <li>Usage right on claude.ai – under the message box and in the sidebar</li>
-  <li>Notifications at chosen thresholds, when a limit resets and before a free reset expires</li>
-  <li>History and weekly overview, available in 27 languages</li>
-  <li>PRO: longer history, several accounts at once, CSV export</li>
-</ul>
-<p>Works with Claude Pro, Max and Team plans (the free plan doesn't provide usage data).</p>
-<p><a href="privacy.html">Privacy policy</a> · <a href="mailto:usagemeter.claude@gmail.com">usagemeter.claude@gmail.com</a></p>
-<p class="muted">Unofficial extension, not affiliated with or endorsed by Anthropic. Claude is a trademark of Anthropic, PBC.</p>
+
+<section id="features">
+  <h2>Everything about your <em>Claude limits</em> at a glance</h2>
+  <div class="grid">
+    <div class="card"><span class="i">◔</span><b>Live % on the icon</b>Green, orange, red – the higher of your session and weekly usage, always in sight.</div><div class="card"><span class="i">↗</span><b>Run-out forecast</b>“At this pace you'll hit the limit in 1 h 20 min” – and on which day the weekly limit runs out.</div><div class="card"><span class="i">▭</span><b>Right on claude.ai</b>A slim bar under the message box and a box in the sidebar show your limits where you work.</div><div class="card"><span class="i">◷</span><b>Smart notifications</b>At 80 % and 95 % (adjustable), when a limit resets and before a free limit reset expires.</div><div class="card"><span class="i">⌘</span><b>Claude Code &amp; per-model limits</b>Usage from Claude Code, the desktop app and your phone counts too – per-model limits included.</div><div class="card"><span class="i">▤</span><b>History &amp; weekly overview</b>Charts of your session and weekly usage, compared with last week. 27 languages, light and dark mode.</div>
+  </div>
+</section>
+
+<section id="how">
+  <h2>How it works</h2>
+  <div class="steps">
+    <div><b>Install the extension</b>From the Chrome Web Store, Microsoft Edge Add-ons or Firefox Add-ons – free.</div>
+    <div><b>Sign in to claude.ai</b>In the same browser. The extension uses your existing session – no API key, no password.</div>
+    <div><b>Watch your limits</b>The icon shows your usage in %, the popup shows details and you get notified before you hit the limit.</div>
+  </div>
+</section>
+
+<section id="faq">
+  <h2>Frequently asked questions</h2>
+  <details><summary>How do I check my Claude usage limit?</summary><p>On claude.ai you can open Settings → Usage. Usage Meter for Claude shows the same numbers all the time: the percentage is on the toolbar icon and the popup shows the current session, the weekly limit and when each one resets – without opening any settings page.</p></details><details><summary>What is the Claude 5-hour session limit?</summary><p>Claude Pro and Max plans have a usage limit per session that resets 5 hours after the session starts, plus a weekly limit across all models. The extension shows both, including per-model weekly limits, and tells you when a new session starts.</p></details><details><summary>Does it work with Claude Code?</summary><p>Yes. Claude Code uses the same limits as claude.ai, so its usage is included in the session and weekly numbers – also usage from the desktop app and your phone. The extension refreshes in the background even when claude.ai isn't open.</p></details><details><summary>Is it free?</summary><p>Yes. The usage on the icon, the popup, notifications, the run-out forecast, usage on claude.ai and 7 days of history are free. PRO (€0.99/month or €7.99/year, 7-day free trial) adds 30 and 60-day history, several accounts at once and CSV export.</p></details><details><summary>Which Claude plans are supported?</summary><p>Claude Pro, Max and Team. The free Claude plan doesn't provide usage data, so there is nothing to show.</p></details><details><summary>Is my data safe?</summary><p>The extension only reads your own usage percentages from claude.ai using the session you're already signed in with. It never reads your conversations, and nothing is sent to the developer – everything stays in your browser. No analytics, no tracking.</p></details>
+</section>
+
+<section>
+  <div class="cta">
+    <h2>Stop guessing how much of your <em>Claude limit</em> is left</h2>
+    <div class="btns">
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib">Chrome</a>
+      <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog">Microsoft Edge</a>
+      <a class="btn" href="https://addons.mozilla.org/firefox/addon/usage-meter-for-claude-ai/">Firefox</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><a href="privacy.html">Privacy policy</a> · <a href="feedback.html?t=idea&amp;l=en">Suggest an improvement</a> · <a href="mailto:usagemeter.claude@gmail.com">usagemeter.claude@gmail.com</a></p>
+  <p style="margin-top:8px">Unofficial extension, not affiliated with or endorsed by Anthropic. Claude is a trademark of Anthropic, PBC.</p>
+</footer>
+</div>
+<script>
+// hlavné tlačidlo podľa prehliadača návštevníka
+(function () {
+  var ua = navigator.userAgent, b = /Edg\//.test(ua) ? 'edge' : /Firefox\//.test(ua) ? 'firefox' : null;
+  if (!b) return;
+  var names = { edge: 'Add to Edge – it\'s free', firefox: 'Add to Firefox – it\'s free' };
+  var box = document.getElementById('btns'), main = box.querySelector('[data-b="' + b + '"]'), chrome = box.querySelector('[data-b="chrome"]');
+  chrome.classList.remove('primary'); chrome.textContent = 'Chrome';
+  main.classList.add('primary'); main.textContent = names[b];
+  box.insertBefore(main, box.firstChild);
+})();
+</script>
 </body>
 </html>
