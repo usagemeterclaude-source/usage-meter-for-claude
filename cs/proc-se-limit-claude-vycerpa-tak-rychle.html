@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proč se limit Claude vyčerpá tak rychle? 10 příčin a řešení</title>
+<meta name="description" content="Proč se váš limit v Claude vyčerpá tak rychle: dlouhé konverzace, přílohy, vyhledávání na webu, úroveň úsilí, projekty i Claude Code čerpají ze stejného 5hodinového a týdenního limitu. 10 příčin a jak je řešit.">
+<link rel="canonical" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/proc-se-limit-claude-vycerpa-tak-rychle.html">
+<link rel="alternate" hreflang="en" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/why-claude-limit-runs-out.html">
+<link rel="alternate" hreflang="sk" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/preco-sa-limit-claude-minie-tak-rychlo.html">
+<link rel="alternate" hreflang="cs" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/proc-se-limit-claude-vycerpa-tak-rychle.html">
+<link rel="alternate" hreflang="de" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/de/warum-ist-das-claude-limit-so-schnell-erreicht.html">
+<link rel="alternate" hreflang="it" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/perche-il-limite-di-claude-finisce-cosi-presto.html">
+<link rel="alternate" hreflang="fr" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/fr/pourquoi-la-limite-claude-est-atteinte-si-vite.html">
+<link rel="alternate" hreflang="x-default" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/why-claude-limit-runs-out.html">
+<link rel="icon" href="../assets/icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Proč se limit Claude vyčerpá tak rychle? 10 příčin a řešení">
+<meta property="og:description" content="Proč se váš limit v Claude vyčerpá tak rychle: dlouhé konverzace, přílohy, vyhledávání na webu, úroveň úsilí, projekty i Claude Code čerpají ze stejného 5hodinového a týdenního limitu. 10 příčin a jak je řešit.">
+<meta property="og:url" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/proc-se-limit-claude-vycerpa-tak-rychle.html">
+<meta property="og:image" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"Proč se limit Claude vyčerpá tak rychle? 10 příčin a řešení","description":"Proč se váš limit v Claude vyčerpá tak rychle: dlouhé konverzace, přílohy, vyhledávání na webu, úroveň úsilí, projekty i Claude Code čerpají ze stejného 5hodinového a týdenního limitu. 10 příčin a jak je řešit.","inLanguage":"cs","datePublished":"2026-11-18","dateModified":"2026-11-18","image":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png","author":{"@type":"Organization","name":"Usage Meter for Claude","url":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/"},"mainEntityOfPage":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/proc-se-limit-claude-vycerpa-tak-rychle.html"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Proč se mi limit v Claude vyčerpá tak rychle?","acceptedAnswer":{"@type":"Answer","text":"Spotřeba nezávisí na počtu zpráv, ale na tom, kolik toho musí Claude zpracovat. Víc spotřebují dlouhé konverzace, velké přílohy, nástroje jako vyhledávání na webu a Research, vyšší úroveň úsilí i relace v Claude Code."}},{"@type":"Question","name":"Spotřebuje dlouhá konverzace víc z mého limitu?","acceptedAnswer":{"@type":"Answer","text":"Ano. Délka konverzace je jedním z hlavních faktorů. Když pro nové téma založíte nový chat, ušetříte."}},{"@type":"Question","name":"Čerpá Claude Code z mých limitů na claude.ai?","acceptedAnswer":{"@type":"Answer","text":"Ano. Claude Code, claude.ai i Claude Desktop sdílejí stejný 5hodinový a týdenní limit."}},{"@type":"Question","name":"Pomůže přepnout na jiný model, když narazím na limit?","acceptedAnswer":{"@type":"Answer","text":"U limitu relace ani u týdenního limitu ne – ty platí pro všechny modely společně. Pomůže jen u samostatného týdenního limitu pro konkrétní model."}},{"@type":"Question","name":"Jak zjistím, jak blízko limitu jsem?","acceptedAnswer":{"@type":"Answer","text":"Otevřete na claude.ai Settings → Usage, v Claude Code spusťte /usage, nebo si nainstalujte Usage Meter for Claude a uvidíte to přímo na panelu nástrojů."}}]}]</script>
+<style>
+  :root { --bg: #1a1816; --card: #24211e; --line: #34302b; --fg: #fff; --text: #e2ddd5; --muted: #cfc9bf; --dim: #9d968c; --accent: #d97757; --accent2: #e08a6a; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: radial-gradient(circle at 85% 0, rgba(217,119,87,.25), transparent 35%) no-repeat, var(--bg); color: var(--text); font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; line-height: 1.65; }
+  a { color: var(--accent2); }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; align-items: center; gap: 10px; padding: 22px 0; font-weight: 600; }
+  nav a.home { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
+  nav img { width: 30px; height: 30px; }
+  nav .links { margin-left: auto; display: flex; gap: 22px; font-size: 14px; font-weight: 400; }
+  nav .links a { color: var(--muted); text-decoration: none; }
+  header { padding: 30px 0 10px; }
+  h1 { font-size: 40px; line-height: 1.15; letter-spacing: -.8px; color: #fff; }
+  h1 em, h2 em { font-style: normal; color: var(--accent2); }
+  .meta { color: var(--dim); font-size: 14px; margin-top: 12px; }
+  h2 { font-size: 26px; color: #fff; margin: 42px 0 12px; letter-spacing: -.3px; }
+  h3 { font-size: 19px; color: #fff; margin: 24px 0 8px; }
+  p, li { font-size: 17px; }
+  p { margin: 12px 0; }
+  ol, ul { padding-left: 24px; margin: 10px 0; }
+  li { margin: 6px 0; }
+  code, kbd { background: #2e2a26; border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; font-size: 15px; color: #fff; font-family: Consolas, 'SF Mono', monospace; }
+  .answer { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; margin: 24px 0; }
+  .answer b { color: #fff; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: #fff; font-weight: 600; }
+  .cta { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 26px; margin: 36px 0; display: flex; gap: 24px; align-items: center; }
+  .cta img { width: 200px; height: auto; border-radius: 10px; box-shadow: 0 16px 40px rgba(0,0,0,.5); flex: none; }
+  .cta h2 { margin-top: 0; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .btn { display: inline-block; border-radius: 10px; padding: 11px 18px; font-weight: 700; text-decoration: none; color: #fff; border: 1px solid #6b5f55; font-size: 15px; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); }
+  .note { color: var(--dim); font-size: 14px; }
+  footer { color: var(--dim); font-size: 13px; padding: 36px 0 50px; border-top: 1px solid var(--line); margin-top: 40px; }
+  footer a { color: var(--muted); }
+  @media (max-width: 640px) {
+    h1 { font-size: 30px; } h2 { font-size: 22px; }
+    nav .links { display: none; }
+    .cta { flex-direction: column; text-align: center; }
+    .cta .btns { justify-content: center; }
+  }
+
+  .langs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; font-size: 13px; }
+  .langs a, .langs span { padding: 3px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); text-decoration: none; }
+  .langs span { color: #fff; border-color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="home" href="../"><img src="../assets/icon.png" alt="">Usage Meter for Claude</a>
+  <div class="links"><a href="../#features">Funkce</a><a href="../claude-usage-limits.html">Zkontrolujte své limity (EN)</a><a href="../#faq">Časté dotazy</a><a href="../privacy.html">Soukromí</a></div></nav>
+
+<header>
+  <h1>Proč se <em>limit v Claude</em> vyčerpá tak rychle? 10 příčin a jak je řešit</h1>
+  <p class="meta">Aktualizováno 18. listopadu 2026 · čtení na 6 minut</p>
+  <div class="langs"><a href="../why-claude-limit-runs-out.html" hreflang="en" lang="en">English</a><a href="../sk/preco-sa-limit-claude-minie-tak-rychlo.html" hreflang="sk" lang="sk">Slovenčina</a><span lang="cs">Čeština</span><a href="../de/warum-ist-das-claude-limit-so-schnell-erreicht.html" hreflang="de" lang="de">Deutsch</a><a href="../it/perche-il-limite-di-claude-finisce-cosi-presto.html" hreflang="it" lang="it">Italiano</a><a href="../fr/pourquoi-la-limite-claude-est-atteinte-si-vite.html" hreflang="fr" lang="fr">Français</a></div>
+</header>
+
+<div class="answer">
+  <b>Stručně:</b> Claude nepočítá zprávy – počítá, kolik toho musí <b>zpracovat</b>. Při každé odpovědi znovu čte <b>celou konverzaci</b> včetně příloh, souborů projektu, nástrojů a přemýšlení. Dlouhé chaty, velké soubory, vyhledávání na webu, Research, vysoké úsilí a dlouhé relace v <b>Claude Code</b> vyčerpají 5hodinový i týdenní limit mnohem rychleji než krátké, cílené chaty. A claude.ai, Claude Code i Claude Desktop sdílejí <b>stejné limity</b>.
+</div>
+
+<h2>10 nejčastějších příčin</h2>
+
+<h3>1. Konverzace je už příliš dlouhá</h3>
+<p>S každou novou zprávou Claude zpracuje celou dosavadní konverzaci. Jednořádková otázka na konci dlouhého vlákna stojí mnohem víc než stejná otázka v novém chatu. Anthropic uvádí <b>délku aktuální konverzace</b> jako jeden z hlavních faktorů spotřeby.</p>
+<p><b>Řešení:</b> když přejdete k novému tématu, založte novou konverzaci. Pokud potřebujete kontext z té staré, vložte do nové krátké shrnutí.</p>
+
+<h3>2. Velké přílohy a dlouhé zprávy</h3>
+<p>Počítá se velikost souborů i délka zpráv. Stostránkové PDF zůstává v konverzaci a zpracovává se znovu i s dalšími zprávami.</p>
+<p><b>Řešení:</b> přikládejte jen tu část, kterou opravdu potřebujete, a dokumenty, se kterými pracujete opakovaně, vložte do <b>projektu</b> (viz bod 6).</p>
+
+<h3>3. Vyhledávání na webu, Research a připojené nástroje</h3>
+<p>Research, vyhledávání na webu, konektory a další nástroje vnášejí do konverzace spoustu textu navíc. Anthropic nástroje a konektory označuje za <b>náročné na tokeny</b>.</p>
+<p><b>Řešení:</b> vypněte vyhledávání na webu a konektory, které v daném chatu nepotřebujete.</p>
+
+<h3>4. Vysoké úsilí a rozšířené přemýšlení</h3>
+<p><b>Volba modelu a úroveň úsilí</b> přímo ovlivňují spotřebu – vyšší úsilí spotřebuje víc tokenů, protože Claude před odpovědí přemýšlí déle.</p>
+<p><b>Řešení:</b> u jednoduchých otázek přemýšlení vypněte, nebo u modelů, které přemýšlejí vždy, zvolte nižší úroveň úsilí.</p>
+
+<h3>5. Pořád používáte největší model</h3>
+<p>Největší model čerpá z limitů víc a u některých tarifů má navíc vlastní samostatný týdenní limit.</p>
+<p><b>Řešení:</b> na běžnou práci – přepisování, shrnutí, rychlé dotazy – používejte lehčí model a ten největší si nechte na složité úlohy.</p>
+
+<h3>6. Návrat k projektu po delší pauze</h3>
+<p>Obsah projektu se ukládá do mezipaměti a při opakovaném použití se započítává méně. Mezipaměť ale po určité době nečinnosti vyprší, takže když se vrátíte po delší pauze, <b>vaše první zpráva započítá obsah projektu znovu v plné výši</b>.</p>
+<p><b>Řešení:</b> udržujte pokyny projektu stručné, odeberte soubory, které už nepotřebujete, a práci na projektu soustřeďte do jednoho bloku místo mnoha krátkých návštěv.</p>
+
+<h3>7. Artefakty a vícekrokové úlohy</h3>
+<p>Tvorba artefaktů, spouštění kódu, vytváření souborů a procházení webu jsou vícekrokové úlohy – Claude na jeden požadavek udělá několik průchodů.</p>
+<p><b>Řešení:</b> žádejte přesně to, co potřebujete („změň jen barvu záhlaví“), místo abyste pokaždé nechali vygenerovat celý artefakt znovu.</p>
+
+<h3>8. Vágní zadání a spousta upřesňování</h3>
+<p>„Vylepši to“ vede k dotazům, odhadům a opravám – a každá z nich znamená další úplný průchod konverzací.</p>
+<p><b>Řešení:</b> uveďte souvislosti hned na začátku, související otázky spojte do jedné zprávy a zadání si před odesláním zkontrolujte.</p>
+
+<h3>9. Claude Code čerpá ze stejných limitů</h3>
+<p>Tohle mnohé překvapí: <b>Claude Code, claude.ai a Claude Desktop sdílejí jeden společný limit</b>. Po dopoledni programování vám odpoledne na chatování nemusí moc zbýt. V Claude Code nese každý požadavek obsah souborů a výsledky nástrojů, takže jedna relace ladění může spotřebovat víc než celý den chatování.</p>
+<p><b>Řešení (Claude Code):</b></p>
+<ul>
+  <li><code>/clear</code>, když přecházíte k nesouvisejícímu úkolu – zastaralý kontext se posílá znovu s každou zprávou.</li>
+  <li><code>/compact</code> pro shrnutí dlouhé relace (sám o sobě je to velký požadavek, takže ho nespouštějte po každých pár zprávách).</li>
+  <li><code>/model</code> pro lehčí model na rutinní práci, <code>/effort</code> pro snížení úrovně úsilí.</li>
+  <li><code>/mcp</code> pro vypnutí serverů, které nepoužíváte; <code>CLAUDE.md</code> udržujte stručný.</li>
+  <li><code>/usage</code> ukáže, co vám čerpalo tarif, a navrhne změny.</li>
+  <li>Pište konkrétní zadání („přidej validaci do přihlašovací funkce v auth.ts“) místo „vylepši tenhle kód“.</li>
+</ul>
+
+<h3>10. Dlouhé relace čerpají limit, i když nic neděláte</h3>
+<p>V Claude Code může relace otevřená celé hodiny spotřebovat víc, než by odpovídalo vaší aktivitě: první zpráva po delší pauze znovu zpracuje celý kontext a naplánované úlohy, subagenti a týmy agentů posílají vedle vašich i vlastní požadavky.</p>
+<p><b>Řešení:</b> dokončené relace zavřete nebo vyčistěte pomocí <code>/clear</code> a zastavte smyčky a spoluhráče z týmu, které už nepotřebujete.</p>
+
+<h2>Jak limity fungují (za minutu)</h2>
+<table>
+  <tr><th>Limit</th><th>Jak funguje</th></tr>
+  <tr><td>5hodinová relace</td><td>Začíná vaší první zprávou a po pěti hodinách se celá obnoví.</td></tr>
+  <tr><td>Týdenní</td><td>Platí pro všechny modely společně a obnovuje se v pevně daný čas přidělený vašemu účtu. Některé tarify mají navíc samostatný týdenní limit pro největší model.</td></tr>
+  <tr><td>Společný limit</td><td>claude.ai, Claude Code (včetně IDE) i Claude Desktop se započítávají do stejných limitů.</td></tr>
+  <tr><td>Kredity za využití</td><td>Pokud je máte u placeného tarifu zapnuté, můžete po vyčerpání limitu pokračovat a spotřebu navíc zaplatit.</td></tr>
+</table>
+<p>Kde se právě nacházíte, zjistíte na claude.ai v <b>Settings → Usage</b> (Nastavení → Využití) – viz náš návod <a href="../claude-usage-limits.html">Jak zkontrolovat limity v Claude (EN)</a>.</p>
+
+<h2>Vězte to dřív, než narazíte na limit</h2>
+<p>Většina lidí zjistí, že jsou blízko limitu, až když Claude přestane odpovídat. Nejjednodušší řešení je <b>mít spotřebu neustále na očích</b> – pak víte, jestli velký úkol v Claude Code spustit hned, nebo až po obnovení limitu.</p>
+
+<div class="cta">
+  <img src="../assets/popup.png" alt="Vyskakovací okno Usage Meter for Claude se spotřebou relace a týdenního limitu">
+  <div>
+    <h2>Limity Claude <em>vždy na očích</em></h2>
+    <p><b>Usage Meter for Claude</b> je bezplatné rozšíření prohlížeče: procento spotřeby vidíte přímo na ikoně v panelu nástrojů, vyskakovací okno ukazuje limit relace i týdenní limit s časy obnovení, předpověď vám řekne, kdy limit při současném tempu vyčerpáte, a oznámení vás upozorní při 80 % a 95 %. Zahrnuje i spotřebu z Claude Code, desktopové aplikace a telefonu.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib">Chrome</a>
+      <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog">Microsoft Edge</a>
+      <a class="btn" href="https://addons.mozilla.org/firefox/addon/usage-meter-for-claude-ai/">Firefox</a>
+    </div>
+    <p class="note">Funguje s Claude Pro, Max a Team. Vývojáři se nic neodesílá – vaše data zůstávají ve vašem prohlížeči.</p>
+  </div>
+</div>
+
+<h2>Časté dotazy</h2>
+<h3>Proč se mi limit v Claude vyčerpá tak rychle?</h3>
+<p>Spotřeba nezávisí na počtu zpráv, ale na tom, kolik toho musí Claude zpracovat. Víc spotřebují dlouhé konverzace, velké přílohy, nástroje jako vyhledávání na webu a Research, vyšší úroveň úsilí i relace v Claude Code.</p>
+<h3>Spotřebuje dlouhá konverzace víc z mého limitu?</h3>
+<p>Ano. Délka konverzace je jedním z hlavních faktorů. Když pro nové téma založíte nový chat, ušetříte.</p>
+<h3>Čerpá Claude Code z mých limitů na claude.ai?</h3>
+<p>Ano. Claude Code, claude.ai i Claude Desktop sdílejí stejný 5hodinový a týdenní limit.</p>
+<h3>Pomůže přepnout na jiný model, když narazím na limit?</h3>
+<p>U limitu relace ani u týdenního limitu ne – ty platí pro všechny modely společně. Pomůže jen u samostatného týdenního limitu pro konkrétní model.</p>
+<h3>Jak zjistím, jak blízko limitu jsem?</h3>
+<p>Otevřete na claude.ai Settings → Usage, v Claude Code spusťte <code>/usage</code>, nebo si nainstalujte Usage Meter for Claude a uvidíte to přímo na panelu nástrojů.</p>
+
+<p class="note" style="margin-top:30px">Zdroje: Centrum nápovědy Claude – <a href="https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work" rel="nofollow">How do usage and length limits work?</a>, <a href="https://support.claude.com/en/articles/9797557-usage-limit-best-practices" rel="nofollow">Usage limit best practices</a>, <a href="https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan" rel="nofollow">Use Claude Code with your Pro, Max or Ultra plan</a>; dokumentace Claude Code – <a href="https://code.claude.com/docs/en/costs" rel="nofollow">Manage costs effectively</a>.</p>
+
+<footer>
+  <p><a href="../">Usage Meter for Claude</a> · <a href="../claude-usage-limits.html">Jak zkontrolovat limity v Claude (EN)</a> · <a href="../privacy.html">Zásady ochrany soukromí</a> · <a href="../feedback.html?t=idea&amp;l=cs">Navrhnout vylepšení</a> · <a href="mailto:usagemeter.claude@gmail.com">usagemeter.claude@gmail.com</a></p>
+  <p style="margin-top:8px">Neoficiální rozšíření a návod – nejsou nijak spojeny se společností Anthropic ani jí schváleny. Claude je ochranná známka společnosti Anthropic, PBC.</p>
+</footer>
+</div>
+</body>
+</html>
