@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why Do I Hit the Claude Usage Limit So Fast? 10 Reasons and Fixes</title>
+<meta name="description" content="Why your Claude usage limit runs out so fast: long conversations, attachments, web search, effort level, projects and Claude Code all share the same 5-hour and weekly limits. 10 causes and how to fix them.">
+<link rel="canonical" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/why-claude-limit-runs-out.html">
+<link rel="icon" href="assets/icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Why Do I Hit the Claude Usage Limit So Fast? 10 Reasons and Fixes">
+<meta property="og:description" content="Why your Claude usage limit runs out so fast: long conversations, attachments, web search, effort level, projects and Claude Code all share the same 5-hour and weekly limits. 10 causes and how to fix them.">
+<meta property="og:url" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/why-claude-limit-runs-out.html">
+<meta property="og:image" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"Why Do I Hit the Claude Usage Limit So Fast? 10 Reasons and Fixes","description":"Why your Claude usage limit runs out so fast: long conversations, attachments, web search, effort level, projects and Claude Code all share the same 5-hour and weekly limits. 10 causes and how to fix them.","datePublished":"2026-11-18","dateModified":"2026-11-18","image":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png","author":{"@type":"Organization","name":"Usage Meter for Claude","url":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/"},"mainEntityOfPage":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/why-claude-limit-runs-out.html"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why does my Claude limit run out so fast?","acceptedAnswer":{"@type":"Answer","text":"Usage depends on how much Claude has to process, not on the number of messages. Long conversations, large attachments, tools like web search and Research, higher effort levels and Claude Code sessions all use more."}},{"@type":"Question","name":"Does a long conversation use more of my limit?","acceptedAnswer":{"@type":"Answer","text":"Yes. Conversation length is one of the main factors. Starting a new chat for a new topic saves usage."}},{"@type":"Question","name":"Does Claude Code use my claude.ai limits?","acceptedAnswer":{"@type":"Answer","text":"Yes. Claude Code, claude.ai and Claude Desktop share the same 5-hour and weekly limits."}},{"@type":"Question","name":"Does switching to another model help when I hit the limit?","acceptedAnswer":{"@type":"Answer","text":"Not for the session or weekly limit - those apply across all models. It helps only with a separate model-specific weekly limit."}},{"@type":"Question","name":"How can I see how close I am to the limit?","acceptedAnswer":{"@type":"Answer","text":"Open Settings → Usage on claude.ai, run /usage in Claude Code, or install Usage Meter for Claude to see it on the toolbar."}}]}]</script>
+<style>
+  :root { --bg: #1a1816; --card: #24211e; --line: #34302b; --fg: #fff; --text: #e2ddd5; --muted: #cfc9bf; --dim: #9d968c; --accent: #d97757; --accent2: #e08a6a; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: radial-gradient(circle at 85% 0, rgba(217,119,87,.25), transparent 35%) no-repeat, var(--bg); color: var(--text); font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; line-height: 1.65; }
+  a { color: var(--accent2); }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; align-items: center; gap: 10px; padding: 22px 0; font-weight: 600; }
+  nav a.home { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
+  nav img { width: 30px; height: 30px; }
+  nav .links { margin-left: auto; display: flex; gap: 22px; font-size: 14px; font-weight: 400; }
+  nav .links a { color: var(--muted); text-decoration: none; }
+  header { padding: 30px 0 10px; }
+  h1 { font-size: 40px; line-height: 1.15; letter-spacing: -.8px; color: #fff; }
+  h1 em, h2 em { font-style: normal; color: var(--accent2); }
+  .meta { color: var(--dim); font-size: 14px; margin-top: 12px; }
+  h2 { font-size: 26px; color: #fff; margin: 42px 0 12px; letter-spacing: -.3px; }
+  h3 { font-size: 19px; color: #fff; margin: 24px 0 8px; }
+  p, li { font-size: 17px; }
+  p { margin: 12px 0; }
+  ol, ul { padding-left: 24px; margin: 10px 0; }
+  li { margin: 6px 0; }
+  code, kbd { background: #2e2a26; border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; font-size: 15px; color: #fff; font-family: Consolas, 'SF Mono', monospace; }
+  .answer { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; margin: 24px 0; }
+  .answer b { color: #fff; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: #fff; font-weight: 600; }
+  .cta { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 26px; margin: 36px 0; display: flex; gap: 24px; align-items: center; }
+  .cta img { width: 200px; height: auto; border-radius: 10px; box-shadow: 0 16px 40px rgba(0,0,0,.5); flex: none; }
+  .cta h2 { margin-top: 0; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .btn { display: inline-block; border-radius: 10px; padding: 11px 18px; font-weight: 700; text-decoration: none; color: #fff; border: 1px solid #6b5f55; font-size: 15px; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); }
+  .note { color: var(--dim); font-size: 14px; }
+  footer { color: var(--dim); font-size: 13px; padding: 36px 0 50px; border-top: 1px solid var(--line); margin-top: 40px; }
+  footer a { color: var(--muted); }
+  @media (max-width: 640px) {
+    h1 { font-size: 30px; } h2 { font-size: 22px; }
+    nav .links { display: none; }
+    .cta { flex-direction: column; text-align: center; }
+    .cta .btns { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><a class="home" href="./"><img src="assets/icon.png" alt="">Usage Meter for Claude</a>
+  <div class="links"><a href="./#features">Features</a><a href="claude-usage-limits.html">Check your limits</a><a href="./#faq">FAQ</a><a href="privacy.html">Privacy</a></div></nav>
+
+<header>
+  <h1>Why do I hit the <em>Claude usage limit</em> so fast? 10 reasons and how to fix them</h1>
+  <p class="meta">Updated 18 November 2026 · 6 min read</p>
+</header>
+
+<div class="answer">
+  <b>Short answer:</b> Claude doesn't count messages – it counts how much it has to <b>process</b>. Every reply rereads the <b>whole conversation</b>, plus attachments, project files, tools and thinking. Long chats, big files, web search, Research, high effort and long <b>Claude Code</b> sessions use up your 5-hour and weekly limits much faster than short, focused chats. And claude.ai, Claude Code and Claude Desktop all share the <b>same limits</b>.
+</div>
+
+<h2>The 10 most common reasons</h2>
+
+<h3>1. Your conversation has become long</h3>
+<p>With every new message, Claude processes the conversation so far. A one-line question at the end of a long thread costs far more than the same question in a new chat. Anthropic lists <b>current conversation length</b> as one of the main factors behind usage.</p>
+<p><b>Fix:</b> start a new conversation when you switch to a new topic. If you need context from the old one, paste a short summary.</p>
+
+<h3>2. Large attachments and long messages</h3>
+<p>File size and message length both count. A 100-page PDF stays in the conversation and is processed again with later messages.</p>
+<p><b>Fix:</b> attach only the part you need, and put documents you use repeatedly into a <b>project</b> (see point 6).</p>
+
+<h3>3. Web search, Research and connected tools</h3>
+<p>Research, web search, connectors and other tools pull a lot of extra text into the conversation. Anthropic describes tools and connectors as <b>token-intensive</b>.</p>
+<p><b>Fix:</b> turn off web search and connectors you don't need for the current chat.</p>
+
+<h3>4. High effort and extended thinking</h3>
+<p>Your <b>model choice and effort level</b> directly affect usage – higher effort uses more tokens, because Claude thinks longer before answering.</p>
+<p><b>Fix:</b> turn thinking off for simple questions, or choose a lower effort level on models where thinking is always on.</p>
+
+<h3>5. Always using the largest model</h3>
+<p>The biggest model draws more from your limits, and on some plans it also has its own separate weekly limit.</p>
+<p><b>Fix:</b> use a lighter model for everyday tasks – rewriting, summaries, quick questions – and keep the largest one for hard problems.</p>
+
+<h3>6. Coming back to a project after a long break</h3>
+<p>Project content is cached and counts less when it's reused. But caches expire after a period of inactivity, so when you return after a long break, <b>your first message counts the project content in full again</b>.</p>
+<p><b>Fix:</b> keep project instructions short, remove files you no longer need, and group your work on a project into one sitting instead of many short visits.</p>
+
+<h3>7. Artifacts and multi-step tasks</h3>
+<p>Creating artifacts, running code, creating files and browsing are multi-step tasks – Claude makes several passes for one request.</p>
+<p><b>Fix:</b> ask for exactly what you need ("change only the header colour") instead of regenerating the whole artifact each time.</p>
+
+<h3>8. Vague prompts and lots of back-and-forth</h3>
+<p>"Improve this" leads to questions, guesses and corrections – each one another full pass over the conversation.</p>
+<p><b>Fix:</b> give the background up front, batch related questions into one message and check the prompt before sending.</p>
+
+<h3>9. Claude Code eats the same limits</h3>
+<p>This one surprises many people: <b>Claude Code, claude.ai and Claude Desktop share one pool</b>. A morning of coding can leave little for chatting in the afternoon. In Claude Code every request carries file contents and tool results, so one debugging session can use more than a day of chat.</p>
+<p><b>Fix (Claude Code):</b></p>
+<ul>
+  <li><code>/clear</code> when you switch to an unrelated task – stale context is resent with every message.</li>
+  <li><code>/compact</code> to summarise a long session (it's a large request itself, so don't run it after every few messages).</li>
+  <li><code>/model</code> to use a lighter model for routine work, <code>/effort</code> to lower the effort level.</li>
+  <li><code>/mcp</code> to disable servers you don't use; keep <code>CLAUDE.md</code> short.</li>
+  <li><code>/usage</code> shows what used your plan and suggests changes.</li>
+  <li>Write specific prompts ("add validation to the login function in auth.ts") instead of "improve this codebase".</li>
+</ul>
+
+<h3>10. Long sessions keep using usage while you're idle</h3>
+<p>In Claude Code, a session left open for hours can use more than your activity suggests: your first message after a long break reprocesses the full context, and scheduled tasks, subagents and agent teams send their own requests on top of yours.</p>
+<p><b>Fix:</b> close or <code>/clear</code> sessions you've finished, and stop loops and teammates you no longer need.</p>
+
+<h2>How the limits work (in one minute)</h2>
+<table>
+  <tr><th>Limit</th><th>How it works</th></tr>
+  <tr><td>5-hour session</td><td>Starts with your first message and resets in full five hours later.</td></tr>
+  <tr><td>Weekly</td><td>Applies across all models and resets at a fixed time assigned to your account. Some plans also have a separate weekly limit for the largest model.</td></tr>
+  <tr><td>Shared pool</td><td>claude.ai, Claude Code (including IDEs) and Claude Desktop all count towards the same limits.</td></tr>
+  <tr><td>Usage credits</td><td>If enabled on a paid plan, you can keep working past the limit and pay for the extra usage.</td></tr>
+</table>
+<p>You can check where you are in <b>Settings → Usage</b> on claude.ai – see our guide <a href="claude-usage-limits.html">How to check your Claude usage limits</a>.</p>
+
+<h2>Know before you hit the limit</h2>
+<p>Most people only find out they're close when Claude stops answering. The simplest fix is to <b>see your usage all the time</b> – then you know whether to start that big Claude Code task now or after the reset.</p>
+
+<div class="cta">
+  <img src="assets/popup.png" alt="Usage Meter for Claude popup showing session and weekly usage">
+  <div>
+    <h2>Your Claude limits <em>always in sight</em></h2>
+    <p><b>Usage Meter for Claude</b> is a free browser extension: the usage percentage is on the toolbar icon, the popup shows your session and weekly limits with reset times, a forecast tells you when you'll run out at your current pace, and a notification warns you at 80 % and 95 %. It includes usage from Claude Code, the desktop app and your phone.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib">Chrome</a>
+      <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog">Microsoft Edge</a>
+      <a class="btn" href="https://addons.mozilla.org/firefox/addon/usage-meter-for-claude-ai/">Firefox</a>
+    </div>
+    <p class="note">Works with Claude Pro, Max and Team. Nothing is sent to the developer – your data stays in your browser.</p>
+  </div>
+</div>
+
+<h2>Frequently asked questions</h2>
+<h3>Why does my Claude limit run out so fast?</h3>
+<p>Usage depends on how much Claude has to process, not on the number of messages. Long conversations, large attachments, tools like web search and Research, higher effort levels and Claude Code sessions all use more.</p>
+<h3>Does a long conversation use more of my limit?</h3>
+<p>Yes. Conversation length is one of the main factors. Starting a new chat for a new topic saves usage.</p>
+<h3>Does Claude Code use my claude.ai limits?</h3>
+<p>Yes. Claude Code, claude.ai and Claude Desktop share the same 5-hour and weekly limits.</p>
+<h3>Does switching to another model help when I hit the limit?</h3>
+<p>Not for the session or weekly limit – those apply across all models. It helps only with a separate model-specific weekly limit.</p>
+<h3>How can I see how close I am to the limit?</h3>
+<p>Open Settings → Usage on claude.ai, run <code>/usage</code> in Claude Code, or install Usage Meter for Claude to see it on the toolbar.</p>
+
+<p class="note" style="margin-top:30px">Sources: Claude Help Center – <a href="https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work" rel="nofollow">How do usage and length limits work?</a>, <a href="https://support.claude.com/en/articles/9797557-usage-limit-best-practices" rel="nofollow">Usage limit best practices</a>, <a href="https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan" rel="nofollow">Use Claude Code with your Pro, Max or Ultra plan</a>; Claude Code docs – <a href="https://code.claude.com/docs/en/costs" rel="nofollow">Manage costs effectively</a>.</p>
+
+<footer>
+  <p><a href="./">Usage Meter for Claude</a> · <a href="claude-usage-limits.html">How to check your Claude usage limits</a> · <a href="privacy.html">Privacy policy</a> · <a href="feedback.html?t=idea&amp;l=en">Suggest an improvement</a> · <a href="mailto:usagemeter.claude@gmail.com">usagemeter.claude@gmail.com</a></p>
+  <p style="margin-top:8px">Unofficial extension and guide, not affiliated with or endorsed by Anthropic. Claude is a trademark of Anthropic, PBC.</p>
+</footer>
+</div>
+</body>
+</html>
