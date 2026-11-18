@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Pro vs Max vs Ultra: koľko využitia dostanete? (2026)</title>
+<meta name="description" content="Porovnanie Claude Pro, Max a Ultra: ceny, 5× a 10× viac využitia než Pro, 5-hodinový a týždenný limit, Ultra bez 5-hodinového limitu, Claude Code a ako vybrať správny plán.">
+<link rel="canonical" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/porovnanie-claude-pro-max-ultra.html">
+<link rel="icon" href="../assets/icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Pro vs Max vs Ultra: koľko využitia dostanete? (2026)">
+<meta property="og:description" content="Porovnanie Claude Pro, Max a Ultra: ceny, 5× a 10× viac využitia než Pro, 5-hodinový a týždenný limit, Ultra bez 5-hodinového limitu, Claude Code a ako vybrať správny plán.">
+<meta property="og:url" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/porovnanie-claude-pro-max-ultra.html">
+<meta property="og:image" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"Claude Pro vs Max vs Ultra: koľko využitia dostanete? (2026)","description":"Porovnanie Claude Pro, Max a Ultra: ceny, 5× a 10× viac využitia než Pro, 5-hodinový a týždenný limit, Ultra bez 5-hodinového limitu, Claude Code a ako vybrať správny plán.","inLanguage":"sk","datePublished":"2026-11-18","dateModified":"2026-11-18","image":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png","author":{"@type":"Organization","name":"Usage Meter for Claude","url":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/"},"mainEntityOfPage":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/porovnanie-claude-pro-max-ultra.html"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"O koľko viac využitia dáva Claude Max než Pro?","acceptedAnswer":{"@type":"Answer","text":"Max dáva päťnásobok využitia plánu Pro, a to každých 5 hodín aj každý týždeň."}},{"@type":"Question","name":"Aký je rozdiel medzi Claude Max a Ultra?","acceptedAnswer":{"@type":"Answer","text":"Max stojí 100 $ mesačne a dáva 5× viac využitia než Pro, s 5-hodinovým limitom. Ultra stojí 200 $ mesačne, dáva 10× viac využitia než Pro každý týždeň a overené účty nemajú 5-hodinový limit."}},{"@type":"Question","name":"Čo sa stalo s Claude Max 20x?","acceptedAnswer":{"@type":"Answer","text":"Max 20x bol premenovaný na Ultra. Doterajší predplatitelia Max 20x boli automaticky presunutí na Ultra za rovnakú cenu."}},{"@type":"Question","name":"Je Claude Code súčasťou plánu Pro?","acceptedAnswer":{"@type":"Answer","text":"Áno. Pro, Max aj Ultra zahŕňajú Claude Code a ten čerpá z tých istých limitov ako chat na claude.ai a desktopová aplikácia."}},{"@type":"Question","name":"Dá sa získať viac využitia bez prechodu na vyšší plán?","acceptedAnswer":{"@type":"Answer","text":"Áno. Pri platených plánoch si môžete zapnúť kredity na používanie a pracovať aj po dosiahnutí limitu – platíte len za využitie navyše, až do mesačného stropu, ktorý si nastavíte."}}]}]</script>
+<style>
+  :root { --bg: #1a1816; --card: #24211e; --line: #34302b; --fg: #fff; --text: #e2ddd5; --muted: #cfc9bf; --dim: #9d968c; --accent: #d97757; --accent2: #e08a6a; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: radial-gradient(circle at 85% 0, rgba(217,119,87,.25), transparent 35%) no-repeat, var(--bg); color: var(--text); font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; line-height: 1.65; }
+  a { color: var(--accent2); }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; align-items: center; gap: 10px; padding: 22px 0; font-weight: 600; }
+  nav a.home { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
+  nav img { width: 30px; height: 30px; }
+  nav .links { margin-left: auto; display: flex; gap: 22px; font-size: 14px; font-weight: 400; }
+  nav .links a { color: var(--muted); text-decoration: none; }
+  header { padding: 30px 0 10px; }
+  h1 { font-size: 40px; line-height: 1.15; letter-spacing: -.8px; color: #fff; }
+  h1 em, h2 em { font-style: normal; color: var(--accent2); }
+  .meta { color: var(--dim); font-size: 14px; margin-top: 12px; }
+  h2 { font-size: 26px; color: #fff; margin: 42px 0 12px; letter-spacing: -.3px; }
+  h3 { font-size: 19px; color: #fff; margin: 24px 0 8px; }
+  p, li { font-size: 17px; }
+  p { margin: 12px 0; }
+  ol, ul { padding-left: 24px; margin: 10px 0; }
+  li { margin: 6px 0; }
+  code, kbd { background: #2e2a26; border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; font-size: 15px; color: #fff; font-family: Consolas, 'SF Mono', monospace; }
+  .answer { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; margin: 24px 0; }
+  .answer b { color: #fff; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: #fff; font-weight: 600; }
+  .cta { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 26px; margin: 36px 0; display: flex; gap: 24px; align-items: center; }
+  .cta img { width: 200px; height: auto; border-radius: 10px; box-shadow: 0 16px 40px rgba(0,0,0,.5); flex: none; }
+  .cta h2 { margin-top: 0; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .btn { display: inline-block; border-radius: 10px; padding: 11px 18px; font-weight: 700; text-decoration: none; color: #fff; border: 1px solid #6b5f55; font-size: 15px; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); }
+  .note { color: var(--dim); font-size: 14px; }
+  footer { color: var(--dim); font-size: 13px; padding: 36px 0 50px; border-top: 1px solid var(--line); margin-top: 40px; }
+  footer a { color: var(--muted); }
+  @media (max-width: 640px) {
+    h1 { font-size: 30px; } h2 { font-size: 22px; }
+    nav .links { display: none; }
+    .cta { flex-direction: column; text-align: center; }
+    .cta .btns { justify-content: center; }
+  }
+
+  .langs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; font-size: 13px; }
+  .langs a, .langs span { padding: 3px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); text-decoration: none; }
+  .langs span { color: #fff; border-color: var(--accent); }
+</style>
+<link rel="alternate" hreflang="en" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-pro-vs-max-vs-ultra.html">
+<link rel="alternate" hreflang="sk" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/porovnanie-claude-pro-max-ultra.html">
+<link rel="alternate" hreflang="cs" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/srovnani-claude-pro-max-ultra.html">
+<link rel="alternate" hreflang="de" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/de/claude-pro-max-ultra-vergleich.html">
+<link rel="alternate" hreflang="it" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/confronto-claude-pro-max-ultra.html">
+<link rel="alternate" hreflang="fr" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/fr/comparatif-claude-pro-max-ultra.html">
+<link rel="alternate" hreflang="x-default" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-pro-vs-max-vs-ultra.html">
+</head>
+<body>
+<div class="wrap">
+<nav><a class="home" href="./"><img src="../assets/icon.png" alt="">Usage Meter for Claude</a>
+  <div class="links"><a href="./#features">Funkcie</a><a href="ako-zistit-limity-claude.html">Ako zistiť limity</a><a href="./#faq">Časté otázky</a><a href="privacy.html">Súkromie</a></div></nav>
+
+<header>
+  <h1>Claude <em>Pro vs Max vs Ultra</em>: koľko využitia dostanete?</h1>
+  <p class="meta">Aktualizované 18. novembra 2026 · 6 min čítania</p>
+  <div class="langs"><a href="../claude-pro-vs-max-vs-ultra.html" hreflang="en" lang="en">English</a><span lang="sk">Slovenčina</span><a href="../cs/srovnani-claude-pro-max-ultra.html" hreflang="cs" lang="cs">Čeština</a><a href="../de/claude-pro-max-ultra-vergleich.html" hreflang="de" lang="de">Deutsch</a><a href="../it/confronto-claude-pro-max-ultra.html" hreflang="it" lang="it">Italiano</a><a href="../fr/comparatif-claude-pro-max-ultra.html" hreflang="fr" lang="fr">Français</a></div>
+</header>
+
+<div class="answer">
+  <b>Stručne:</b> <b>Pro</b> (20 $ mesačne) má 5-hodinový limit relácie a týždenný limit. <b>Max</b> (100 $ mesačne) vám dáva <b>5× viac využitia než Pro</b> – každých 5 hodín aj každý týždeň. <b>Ultra</b> (200 $ mesačne, predtým Max 20x) vám dáva <b>10× viac využitia než Pro každý týždeň</b> a po overení účtu <b>žiadny 5-hodinový limit</b>. Ak na limit narazíte len občas, kredity na používanie pri pláne Pro môžu vyjsť lacnejšie než prechod na vyšší plán.
+</div>
+
+<h2>Plány vedľa seba</h2>
+<table>
+  <tr><th>Plán</th><th>Cena (USA, web)</th><th>Využitie</th><th>5-hodinový limit</th></tr>
+  <tr><td>Free</td><td>0 $</td><td>Obmedzené každých 5 hodín aj týždenne</td><td>Áno</td></tr>
+  <tr><td>Pro</td><td>20 $ mesačne alebo 17 $ mesačne pri ročnej platbe</td><td>Viac než Free; základ pre ostatné plány</td><td>Áno</td></tr>
+  <tr><td>Max</td><td>100 $ mesačne</td><td>5× Pro, každých 5 hodín aj každý týždeň</td><td>Áno</td></tr>
+  <tr><td>Ultra</td><td>200 $ mesačne</td><td>10× Pro každý týždeň</td><td>Nie (overené účty)</td></tr>
+</table>
+<p class="note">Ceny podľa claude.com/pricing, bez dane. Miestne ceny a ceny v obchodoch s mobilnými aplikáciami sa môžu líšiť. Max a Ultra sú len mesačné predplatné.</p>
+
+<h2>Čo majú plány spoločné</h2>
+<ul>
+  <li><b>Claude Code je súčasťou</b> plánov Pro, Max aj Ultra – jedno predplatné pre chat na claude.ai, Claude Desktop aj Claude Code.</li>
+  <li><b>Jeden spoločný balík:</b> chatovanie, programovanie v Claude Code aj používanie desktopovej aplikácie sa započítavajú do tých istých limitov.</li>
+  <li><b>Týždenné limity</b> platia pre všetky modely spolu a obnovujú sa v pevne stanovenom čase priradenom vášmu účtu.</li>
+  <li>Pri plánoch Max a Ultra je navyše <b>samostatný týždenný limit pre najväčší model</b>, takže na ňom nemôžete minúť celý týždeň.</li>
+</ul>
+
+<h2>Ktorý plán potrebujete?</h2>
+<p>Anthropic presné počty správ nezverejňuje – využitie závisí od dĺžky konverzácie, príloh, nástrojov a modelu. Najlepším vodítkom je to, ako na limity reálne narážate:</p>
+<table>
+  <tr><th>Ak…</th><th>Potom</th></tr>
+  <tr><td>Na limit narazíte len zriedka</td><td>Stačí vám <b>Pro</b>.</td></tr>
+  <tr><td>Na limit narazíte niekoľkokrát do mesiaca</td><td>Zostaňte pri <b>Pro</b> a zapnite si <b>kredity na používanie</b> – platíte len za využitie navyše, s mesačným stropom, ktorý si nastavíte.</td></tr>
+  <tr><td>Na 5-hodinový limit narazíte väčšinu dní</td><td><b>Max</b>: päťkrát viac využitia na reláciu aj na týždeň.</td></tr>
+  <tr><td>Týždenný limit miniete pred koncom týždňa</td><td><b>Max</b>, ak potrebujete až 5× viac; <b>Ultra</b>, ak potrebujete ešte viac.</td></tr>
+  <tr><td>Pracujete v dlhých, neprerušovaných reláciách (napr. celý deň v Claude Code)</td><td><b>Ultra</b>: overené účty nemajú 5-hodinový limit, len týždenný.</td></tr>
+</table>
+<p>Skôr než prejdete na vyšší plán, overte si, či jednoducho nemíňate viac, než potrebujete – dlhé konverzácie, veľké prílohy a vysoké úrovne úsilia rýchlo vyčerpajú akýkoľvek plán. Pozrite si <a href="preco-sa-limit-claude-minie-tak-rychlo.html">Prečo sa limit v Claude minie tak rýchlo?</a></p>
+
+<h2>Ultra: čo znamená „žiadny 5-hodinový limit“</h2>
+<p>Ultra nahradil doterajší plán <b>Max 20x</b> – doterajší predplatitelia Max 20x boli presunutí na Ultra za rovnakú cenu. Pri Ultra 5-hodinový limit relácie zmizne, keď je váš účet <b>overený</b>. Anthropic overuje účty Ultra automaticky na základe histórie účtu a platieb; vy nemusíte nič robiť. Ak na claude.ai v Settings → Usage (Nastavenia → Využitie) nevidíte pruh <b>Current session</b> (aktuálna relácia), váš účet je overený. <b>Týždenný limit naďalej platí</b>.</p>
+
+<h2>Skôr než sa rozhodnete, zmerajte si využitie</h2>
+<p>Najlacnejší plán je ten, ktorý zodpovedá tomu, ako naozaj pracujete. Týždeň či dva sledujte svoju spotrebu:</p>
+<ul>
+  <li>Ako často dosiahne vaša <b>5-hodinová relácia</b> 100 %?</li>
+  <li>V ktorý deň sa minie váš <b>týždenný limit</b> – alebo vydrží celý týždeň?</li>
+  <li>Koľko z toho pripadá na <b>Claude Code</b>?</li>
+</ul>
+<p>Settings → Usage na claude.ai ukazuje aktuálny stav, nie však históriu. Práve tu pomôže história spotreby.</p>
+
+<div class="cta">
+  <img src="../assets/popup.png" alt="Vyskakovacie okno Usage Meter for Claude so spotrebou relácie a týždňa">
+  <div>
+    <h2>Pozrite si svoju spotrebu <em>skôr, než zaplatíte viac</em></h2>
+    <p><b>Usage Meter for Claude</b> je bezplatné rozšírenie prehliadača: percento spotreby na ikone v paneli nástrojov, limit relácie aj týždenný limit s časom obnovenia, predpoveď, kedy limit miniete, graf histórie spotreby a týždenný prehľad v porovnaní s minulým týždňom. Zahŕňa aj spotrebu z Claude Code, desktopovej aplikácie a mobilu – takže uvidíte, či vám stačí Pro, alebo sa oplatí Max.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib">Chrome</a>
+      <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog">Microsoft Edge</a>
+      <a class="btn" href="https://addons.mozilla.org/firefox/addon/usage-meter-for-claude-ai/">Firefox</a>
+    </div>
+    <p class="note">Funguje s Claude Pro, Max a Team. Vývojárovi sa nič neposiela – vaše údaje zostávajú vo vašom prehliadači.</p>
+  </div>
+</div>
+
+<h2>Časté otázky</h2>
+<h3>O koľko viac využitia dáva Claude Max než Pro?</h3>
+<p>Max dáva päťnásobok využitia plánu Pro, a to každých 5 hodín aj každý týždeň.</p>
+<h3>Aký je rozdiel medzi Claude Max a Ultra?</h3>
+<p>Max stojí 100 $ mesačne a dáva 5× viac využitia než Pro, s 5-hodinovým limitom. Ultra stojí 200 $ mesačne, dáva 10× viac využitia než Pro každý týždeň a overené účty nemajú 5-hodinový limit.</p>
+<h3>Čo sa stalo s Claude Max 20x?</h3>
+<p>Max 20x bol premenovaný na Ultra. Doterajší predplatitelia Max 20x boli automaticky presunutí na Ultra za rovnakú cenu.</p>
+<h3>Je Claude Code súčasťou plánu Pro?</h3>
+<p>Áno. Pro, Max aj Ultra zahŕňajú Claude Code a ten čerpá z tých istých limitov ako chat na claude.ai a desktopová aplikácia.</p>
+<h3>Dá sa získať viac využitia bez prechodu na vyšší plán?</h3>
+<p>Áno. Pri platených plánoch si môžete zapnúť kredity na používanie a pracovať aj po dosiahnutí limitu – platíte len za využitie navyše, až do mesačného stropu, ktorý si nastavíte.</p>
+
+<p class="note" style="margin-top:30px">Zdroje (v angličtine): <a href="https://claude.com/pricing" rel="nofollow">claude.com/pricing</a>; Centrum pomoci Claude – <a href="https://support.claude.com/en/articles/8325606-what-is-the-pro-plan" rel="nofollow">What is the Pro plan?</a>, <a href="https://support.claude.com/en/articles/11049741-what-is-the-max-plan" rel="nofollow">What is the Max plan?</a>, <a href="https://support.claude.com/en/articles/17728952" rel="nofollow">What is the Ultra plan?</a>, <a href="https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work" rel="nofollow">How do usage and length limits work?</a>, <a href="https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans" rel="nofollow">Manage usage credits for paid Claude plans</a>. Plány a ceny sa môžu zmeniť – aktuálnu ponuku nájdete na claude.com/pricing.</p>
+
+<footer>
+  <p><a href="./">Usage Meter for Claude</a> · <a href="ako-zistit-limity-claude.html">Ako zistiť svoje limity v Claude</a> · <a href="preco-sa-limit-claude-minie-tak-rychlo.html">Prečo sa limit v Claude minie tak rýchlo</a> · <a href="privacy.html">Zásady ochrany súkromia</a> · <a href="../feedback.html?t=idea&amp;l=sk">Navrhnúť vylepšenie</a> · <a href="mailto:usagemeter.claude@gmail.com">usagemeter.claude@gmail.com</a></p>
+  <p style="margin-top:8px">Neoficiálne rozšírenie a návod, nie je prepojené so spoločnosťou Anthropic ani ňou schválené. Claude je ochranná známka spoločnosti Anthropic, PBC.</p>
+</footer>
+</div>
+</body>
+</html>
