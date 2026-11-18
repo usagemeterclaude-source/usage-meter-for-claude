@@ -80,7 +80,17 @@
     .pop { position: static; display: block; width: 70%; margin: -40px auto 0; }
     .ctl, .tab { display: none; }
   }
+  .langs { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; font-size: 13px; }
+  .langs a, .langs span { padding: 3px 9px; border: 1px solid var(--line, #34302b); border-radius: 999px; color: var(--muted, #cfc9bf); text-decoration: none; }
+  .langs span { color: var(--fg, #fff); border-color: var(--accent, #d97757); }
 </style>
+<link rel="alternate" hreflang="en" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/">
+<link rel="alternate" hreflang="sk" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/">
+<link rel="alternate" hreflang="cs" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/">
+<link rel="alternate" hreflang="de" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/de/">
+<link rel="alternate" hreflang="it" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/">
+<link rel="alternate" hreflang="fr" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/fr/">
+<link rel="alternate" hreflang="x-default" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/">
 </head>
 <body>
 <div class="wrap">
@@ -146,6 +156,7 @@
 </section>
 
 <footer>
+  <div class="langs"><span lang="en">English</span><a href="sk/" hreflang="sk" lang="sk">Slovenčina</a><a href="cs/" hreflang="cs" lang="cs">Čeština</a><a href="de/" hreflang="de" lang="de">Deutsch</a><a href="it/" hreflang="it" lang="it">Italiano</a><a href="fr/" hreflang="fr" lang="fr">Français</a></div>
   <p><a href="claude-usage-limits.html">How to check your Claude usage limits</a> · <a href="why-claude-limit-runs-out.html">Why the Claude limit runs out so fast</a> · <a href="privacy.html">Privacy policy</a> · <a href="feedback.html?t=idea&amp;l=en">Suggest an improvement</a> · <a href="mailto:usagemeter.claude@gmail.com">usagemeter.claude@gmail.com</a></p>
   <p style="margin-top:8px">Unofficial extension, not affiliated with or endorsed by Anthropic. Claude is a trademark of Anthropic, PBC.</p>
 </footer>

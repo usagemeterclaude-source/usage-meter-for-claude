@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Come controllare i limiti di utilizzo di Claude (sessione, settimanali e Claude Code)</title>
+<meta name="description" content="Dove vedere i limiti di utilizzo di Claude: il limite di sessione di 5 ore e i limiti settimanali su claude.ai (Settings → Usage), il comando /usage in Claude Code, come funziona l'azzeramento e cosa fare quando raggiungi il limite.">
+<link rel="canonical" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/come-controllare-i-limiti-di-claude.html">
+<link rel="icon" href="../assets/icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Come controllare i limiti di utilizzo di Claude (sessione, settimanali e Claude Code)">
+<meta property="og:description" content="Settings → Usage su claude.ai, /usage in Claude Code, come si azzerano il limite di sessione di 5 ore e i limiti settimanali e cosa fare quando li raggiungi.">
+<meta property="og:url" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/come-controllare-i-limiti-di-claude.html">
+<meta property="og:image" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"Come controllare i limiti di utilizzo di Claude (sessione, settimanali e Claude Code)","inLanguage":"it","datePublished":"2026-11-17","dateModified":"2026-11-18","image":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png","author":{"@type":"Organization","name":"Usage Meter for Claude","url":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/"},"mainEntityOfPage":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/come-controllare-i-limiti-di-claude.html"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Dove posso vedere i miei limiti di utilizzo di Claude?","acceptedAnswer":{"@type":"Answer","text":"Su claude.ai, in Settings → Usage, disponibile con i piani Pro, Max, Ultra, Team ed Enterprise basati su postazioni."}},{"@type":"Question","name":"Quando si azzera il limite di sessione di 5 ore?","acceptedAnswer":{"@type":"Answer","text":"Cinque ore dopo il primo messaggio della sessione."}},{"@type":"Question","name":"Quando si azzerano i limiti settimanali?","acceptedAnswer":{"@type":"Answer","text":"A un orario fisso ogni settimana, assegnato al tuo account: controlla il tuo in Settings → Usage."}},{"@type":"Question","name":"Claude Code ha limiti separati?","acceptedAnswer":{"@type":"Answer","text":"No. Claude Code, claude.ai e Claude Desktop condividono gli stessi limiti. /usage in Claude Code mostra solo l'utilizzo delle tue sessioni locali."}},{"@type":"Question","name":"Posso vedere l'utilizzo con il piano gratuito?","acceptedAnswer":{"@type":"Answer","text":"Anche il piano gratuito ha dei limiti, ma la pagina Usage con le barre di sessione e settimanali fa parte dei piani a pagamento."}}]}]</script>
+<style>
+  :root { --bg: #1a1816; --card: #24211e; --line: #34302b; --fg: #fff; --text: #e2ddd5; --muted: #cfc9bf; --dim: #9d968c; --accent: #d97757; --accent2: #e08a6a; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: radial-gradient(circle at 85% 0, rgba(217,119,87,.25), transparent 35%) no-repeat, var(--bg); color: var(--text); font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; line-height: 1.65; }
+  a { color: var(--accent2); }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; align-items: center; gap: 10px; padding: 22px 0; font-weight: 600; }
+  nav a.home { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
+  nav img { width: 30px; height: 30px; }
+  nav .links { margin-left: auto; display: flex; gap: 22px; font-size: 14px; font-weight: 400; }
+  nav .links a { color: var(--muted); text-decoration: none; }
+  header { padding: 30px 0 10px; }
+  h1 { font-size: 40px; line-height: 1.15; letter-spacing: -.8px; color: #fff; }
+  h1 em, h2 em { font-style: normal; color: var(--accent2); }
+  .meta { color: var(--dim); font-size: 14px; margin-top: 12px; }
+  h2 { font-size: 26px; color: #fff; margin: 42px 0 12px; letter-spacing: -.3px; }
+  h3 { font-size: 19px; color: #fff; margin: 24px 0 8px; }
+  p, li { font-size: 17px; }
+  p { margin: 12px 0; }
+  ol, ul { padding-left: 24px; margin: 10px 0; }
+  li { margin: 6px 0; }
+  code, kbd { background: #2e2a26; border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; font-size: 15px; color: #fff; font-family: Consolas, 'SF Mono', monospace; }
+  .answer { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; margin: 24px 0; }
+  .answer b { color: #fff; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: #fff; font-weight: 600; }
+  .cta { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 26px; margin: 36px 0; display: flex; gap: 24px; align-items: center; }
+  .cta img { width: 200px; height: auto; border-radius: 10px; box-shadow: 0 16px 40px rgba(0,0,0,.5); flex: none; }
+  .cta h2 { margin-top: 0; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .btn { display: inline-block; border-radius: 10px; padding: 11px 18px; font-weight: 700; text-decoration: none; color: #fff; border: 1px solid #6b5f55; font-size: 15px; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); }
+  .note { color: var(--dim); font-size: 14px; }
+  footer { color: var(--dim); font-size: 13px; padding: 36px 0 50px; border-top: 1px solid var(--line); margin-top: 40px; }
+  footer a { color: var(--muted); }
+  @media (max-width: 640px) {
+    h1 { font-size: 30px; } h2 { font-size: 22px; }
+    nav .links { display: none; }
+    .cta { flex-direction: column; text-align: center; }
+    .cta .btns { justify-content: center; }
+  }
+  .langs { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; font-size: 13px; }
+  .langs a, .langs span { padding: 3px 9px; border: 1px solid var(--line, #34302b); border-radius: 999px; color: var(--muted, #cfc9bf); text-decoration: none; }
+  .langs span { color: var(--fg, #fff); border-color: var(--accent, #d97757); }
+</style>
+<link rel="alternate" hreflang="en" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-usage-limits.html">
+<link rel="alternate" hreflang="sk" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/ako-zistit-limity-claude.html">
+<link rel="alternate" hreflang="cs" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/jak-zjistit-limity-claude.html">
+<link rel="alternate" hreflang="de" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/de/claude-nutzungslimits-pruefen.html">
+<link rel="alternate" hreflang="it" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/come-controllare-i-limiti-di-claude.html">
+<link rel="alternate" hreflang="fr" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/fr/comment-verifier-les-limites-de-claude.html">
+<link rel="alternate" hreflang="x-default" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-usage-limits.html">
+</head>
+<body>
+<div class="wrap">
+<nav><a class="home" href="./"><img src="../assets/icon.png" alt="">Usage Meter for Claude</a>
+  <div class="links"><a href="./#features">Funzionalità</a><a href="./#faq">FAQ</a><a href="privacy.html">Privacy</a></div></nav>
+
+<header>
+  <h1>Come controllare i <em>limiti di utilizzo di Claude</em> (sessione, settimanali e Claude Code)</h1>
+  <p class="meta">Aggiornato il 17 novembre 2026 · Lettura di 5 minuti</p>
+<div class="langs"><a href="../claude-usage-limits.html" hreflang="en" lang="en">English</a><a href="../sk/ako-zistit-limity-claude.html" hreflang="sk" lang="sk">Slovenčina</a><a href="../cs/jak-zjistit-limity-claude.html" hreflang="cs" lang="cs">Čeština</a><a href="../de/claude-nutzungslimits-pruefen.html" hreflang="de" lang="de">Deutsch</a><span lang="it">Italiano</span><a href="../fr/comment-verifier-les-limites-de-claude.html" hreflang="fr" lang="fr">Français</a></div>
+</header>
+
+<div class="answer">
+  <b>In breve:</b> su claude.ai apri <b>Settings → Usage</b> (Impostazioni → Utilizzo). Vedrai il tuo <b>limite di sessione di 5 ore</b> e i tuoi <b>limiti settimanali</b> come barre di avanzamento, ciascuna con l'orario del prossimo azzeramento. In <b>Claude Code</b>, esegui <code>/usage</code>. Claude.ai, Claude Code e Claude Desktop contano tutti sugli stessi limiti.
+</div>
+
+<h2>1. Controlla i limiti su claude.ai</h2>
+<ol>
+  <li>Apri <a href="https://claude.ai" rel="nofollow">claude.ai</a> e accedi.</li>
+  <li>Fai clic sul tuo nome o sulle tue iniziali nell'angolo in basso a sinistra e scegli <b>Settings</b>.</li>
+  <li>Apri la scheda <b>Usage</b>.</li>
+</ol>
+<p>La pagina Usage è disponibile con i piani <b>Pro, Max, Ultra, Team</b> ed <b>Enterprise</b> basati su postazioni. Mostra:</p>
+<table>
+  <tr><th>Cosa vedi</th><th>Cosa significa</th></tr>
+  <tr><td>Sessione corrente</td><td>Quanto hai usato del tuo limite di sessione di 5 ore e quando si azzera.</td></tr>
+  <tr><td>Settimanale – tutti i modelli</td><td>Il tuo limite settimanale valido per tutti i modelli e l'orario in cui si azzera.</td></tr>
+  <tr><td>Settimanale – un modello specifico</td><td>Con alcuni piani c'è un limite settimanale separato per il modello più grande.</td></tr>
+  <tr><td>Crediti di utilizzo</td><td>Se attivati, quanto hai speso oltre il tuo piano e il tuo tetto mensile.</td></tr>
+</table>
+
+<h2>2. Controlla i limiti in Claude Code</h2>
+<p>Se usi Claude Code con il tuo abbonamento a claude.ai, digita <code>/usage</code> in una sessione. Mostra un dettaglio dell'utilizzo del tuo piano con suggerimenti per usarlo in modo più efficiente.</p>
+<p>Tieni presente che <code>/usage</code> si basa sulla <b>cronologia delle sessioni locali</b>: l'utilizzo da altri computer, da claude.ai o dal telefono lì non è incluso. Per il quadro completo usa Settings → Usage su claude.ai. I crediti di utilizzo si gestiscono in Claude Code con <code>/usage-credits</code>.</p>
+
+<h2>3. Come funzionano i limiti di Claude</h2>
+<h3>Il limite di sessione di 5 ore</h3>
+<p>Con i piani a pagamento, una sessione inizia con il tuo <b>primo messaggio</b> e si azzera completamente <b>cinque ore dopo</b>. Se inizi a lavorare alle 9:00, la sessione si azzera alle 14:00, indipendentemente da quanto hai usato nel frattempo.</p>
+<h3>I limiti settimanali</h3>
+<p>I limiti settimanali si azzerano a un <b>orario fisso ogni settimana</b> assegnato al tuo account, non il lunedì per tutti. Il giorno e l'ora esatti sono indicati in Settings → Usage.</p>
+<h3>Un'unica riserva condivisa</h3>
+<p>Chattare su claude.ai, programmare con <b>Claude Code</b> e usare <b>Claude Desktop</b> attingono tutti agli <b>stessi limiti</b>. Una lunga sessione di Claude Code al mattino può lasciarti meno margine per chattare nel pomeriggio. Anthropic può inoltre modificare i limiti nel tempo per gestire la capacità, quindi la quantità esatta di lavoro che rientra in una sessione può cambiare.</p>
+
+<h2>4. Cosa fare quando raggiungi il limite</h2>
+<ul>
+  <li><b>Aspetta l'azzeramento.</b> Settings → Usage ti dice esattamente quando si azzera la sessione o la settimana.</li>
+  <li><b>Usa i crediti di utilizzo.</b> Con i piani a pagamento in cui i crediti di utilizzo sono attivati, puoi continuare a lavorare pagando l'utilizzo extra.</li>
+  <li><b>Apri una nuova conversazione</b> per un nuovo argomento. Le conversazioni lunghe consumano più limite a ogni messaggio, perché Claude rilegge tutto il contesto.</li>
+  <li><b>Usa un modello più leggero</b> per le attività semplici e tieni il modello più grande per quelle difficili.</li>
+  <li><b>Pianifica il lavoro pesante</b>: controlla quanto ti resta della sessione prima di avviare un'attività impegnativa in Claude Code.</li>
+</ul>
+<p>Il limite finisce troppo in fretta? Leggi <a href="perche-il-limite-di-claude-finisce-cosi-presto.html">Perché il limite di utilizzo di Claude finisce così presto? 10 motivi e come rimediare</a>.</p>
+
+<div class="cta">
+  <img src="../assets/popup.png" alt="Popup di Usage Meter for Claude con l'utilizzo della sessione e quello settimanale">
+  <div>
+    <h2>Vedi i tuoi limiti <em>senza aprire le impostazioni</em></h2>
+    <p><b>Usage Meter for Claude</b> è un'estensione gratuita per il browser che tiene sempre sotto controllo il tuo utilizzo di Claude: la percentuale compare sull'icona nella barra degli strumenti, il popup mostra i limiti di sessione e settimanali con gli orari di azzeramento, una previsione ti dice quando li esaurirai al ritmo attuale e ricevi una notifica prima di raggiungere il limite. Include anche l'utilizzo da Claude Code, dall'app desktop e dal telefono.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib">Chrome</a>
+      <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog">Microsoft Edge</a>
+      <a class="btn" href="https://addons.mozilla.org/firefox/addon/usage-meter-for-claude-ai/">Firefox</a>
+    </div>
+    <p class="note">Funziona con Claude Pro, Max e Team. Allo sviluppatore non viene inviato nulla: i tuoi dati restano nel tuo browser.</p>
+  </div>
+</div>
+
+<h2>Domande frequenti</h2>
+<h3>Dove posso vedere i miei limiti di utilizzo di Claude?</h3>
+<p>Su claude.ai, in Settings → Usage, disponibile con i piani Pro, Max, Ultra, Team ed Enterprise basati su postazioni.</p>
+<h3>Quando si azzera il limite di sessione di 5 ore?</h3>
+<p>Cinque ore dopo il primo messaggio della sessione.</p>
+<h3>Quando si azzerano i limiti settimanali?</h3>
+<p>A un orario fisso ogni settimana, assegnato al tuo account: controlla il tuo in Settings → Usage.</p>
+<h3>Claude Code ha limiti separati?</h3>
+<p>No. Claude Code, claude.ai e Claude Desktop condividono gli stessi limiti. <code>/usage</code> in Claude Code mostra solo l'utilizzo delle tue sessioni locali.</p>
+<h3>Posso vedere l'utilizzo con il piano gratuito?</h3>
+<p>Anche il piano gratuito ha dei limiti, ma la pagina Usage con le barre di sessione e settimanali fa parte dei piani a pagamento.</p>
+
+<p class="note" style="margin-top:30px">Fonti (in inglese): Centro assistenza di Claude – <a href="https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work" rel="nofollow">How do usage and length limits work?</a>, <a href="https://support.claude.com/en/articles/9797557-usage-limit-best-practices" rel="nofollow">Usage limit best practices</a>, <a href="https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans" rel="nofollow">Manage usage credits for paid Claude plans</a>.</p>
+
+<footer>
+  <p><a href="./">Usage Meter for Claude</a> · <a href="perche-il-limite-di-claude-finisce-cosi-presto.html">Perché il limite di Claude finisce così presto</a> · <a href="privacy.html">Informativa sulla privacy</a> · <a href="../feedback.html?t=idea&amp;l=it">Suggerisci un miglioramento</a> · <a href="mailto:usagemeter.claude@gmail.com">usagemeter.claude@gmail.com</a></p>
+  <p style="margin-top:8px">Estensione e guida non ufficiali, non affiliate né approvate da Anthropic. Claude è un marchio di Anthropic, PBC.</p>
+</footer>
+</div>
+</body>
+</html>

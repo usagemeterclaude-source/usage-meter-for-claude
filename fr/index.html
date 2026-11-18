@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suivi des limites d'utilisation de Claude – Usage Meter for Claude (Chrome, Edge, Firefox)</title>
+<meta name="description" content="Extension de navigateur gratuite qui affiche vos limites d'utilisation de Claude dans la barre d'outils : limite de session de 5 heures et limites hebdomadaires, utilisation de Claude Code, alertes et prévision du moment où vous serez à court.">
+<link rel="canonical" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/fr/">
+<link rel="icon" href="../assets/icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Usage Meter for Claude – ne soyez plus jamais pris de court par la limite d'utilisation de Claude">
+<meta property="og:description" content="Vos limites Claude de session et hebdomadaires dans la barre d'outils, avec une prévision d'épuisement et des alertes. Gratuit pour Chrome, Edge et Firefox.">
+<meta property="og:url" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/fr/">
+<meta property="og:image" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Usage Meter for Claude", "applicationCategory": "BrowserApplication", "operatingSystem": "Chrome, Microsoft Edge, Firefox", "description": "Suivi des limites d'utilisation de Claude : limites de session et hebdomadaires dans la barre d'outils du navigateur, limites de Claude Code, alertes et prévision du moment où vous serez à court.", "inLanguage": "fr", "url": "https://usagemeterclaude-source.github.io/usage-meter-for-claude/fr/", "image": "https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "VideoObject", "name": "Usage Meter for Claude – démo de 50 secondes", "description": "Comment Usage Meter for Claude affiche vos limites d'utilisation de Claude, de session et hebdomadaires, dans la barre d'outils du navigateur, avec les heures de réinitialisation, une prévision et des notifications.", "thumbnailUrl": "https://i.ytimg.com/vi/JG96MamvYg8/maxresdefault.jpg", "uploadDate": "2026-11-17", "duration": "PT53S", "contentUrl": "https://youtu.be/JG96MamvYg8", "embedUrl": "https://www.youtube-nocookie.com/embed/JG96MamvYg8"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment vérifier ma limite d'utilisation de Claude ?", "acceptedAnswer": {"@type": "Answer", "text": "Sur claude.ai, vous pouvez ouvrir Settings → Usage (Paramètres → Utilisation). Usage Meter for Claude affiche les mêmes chiffres en permanence : le pourcentage figure sur l'icône de la barre d'outils, et la fenêtre contextuelle indique la session en cours, la limite hebdomadaire et l'heure de réinitialisation de chacune – sans ouvrir la moindre page de paramètres."}}, {"@type": "Question", "name": "Qu'est-ce que la limite de session de 5 heures de Claude ?", "acceptedAnswer": {"@type": "Answer", "text": "Les offres Claude Pro et Max ont une limite d'utilisation par session, qui se réinitialise 5 heures après le début de la session, ainsi qu'une limite hebdomadaire pour l'ensemble des modèles. L'extension affiche les deux, y compris les limites hebdomadaires propres à chaque modèle, et vous indique quand une nouvelle session commence."}}, {"@type": "Question", "name": "Fonctionne-t-elle avec Claude Code ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Claude Code utilise les mêmes limites que claude.ai : son utilisation est donc incluse dans les chiffres de session et hebdomadaires – tout comme l'utilisation depuis l'application de bureau et votre téléphone. L'extension se met à jour en arrière-plan, même lorsque claude.ai n'est pas ouvert."}}, {"@type": "Question", "name": "Est-ce gratuit ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. L'utilisation sur l'icône, la fenêtre contextuelle, les notifications, la prévision d'épuisement, l'affichage sur claude.ai et 7 jours d'historique sont gratuits. PRO (0,99 €/mois ou 7,99 €/an, essai gratuit de 7 jours) ajoute l'historique sur 30 et 60 jours, plusieurs comptes à la fois et l'export CSV."}}, {"@type": "Question", "name": "Quelles offres Claude sont prises en charge ?", "acceptedAnswer": {"@type": "Answer", "text": "Claude Pro, Max et Team. L'offre gratuite de Claude ne fournit pas de données d'utilisation : il n'y a donc rien à afficher."}}, {"@type": "Question", "name": "Mes données sont-elles en sécurité ?", "acceptedAnswer": {"@type": "Answer", "text": "L'extension lit uniquement vos propres pourcentages d'utilisation sur claude.ai, à l'aide de la session à laquelle vous êtes déjà connecté. Elle ne lit jamais vos conversations, et rien n'est envoyé au développeur – tout reste dans votre navigateur. Aucun outil d'analyse, aucun pistage."}}]}]</script>
+<style>
+  :root { --bg: #1a1816; --card: #24211e; --line: #34302b; --fg: #fff; --muted: #cfc9bf; --dim: #9d968c; --accent: #d97757; --accent2: #e08a6a; }
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: radial-gradient(circle at 80% 0, rgba(217,119,87,.30), transparent 40%) no-repeat, var(--bg); color: var(--fg); font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; line-height: 1.5; }
+  a { color: var(--accent2); }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; align-items: center; gap: 10px; padding: 22px 0; font-weight: 600; }
+  nav img { width: 30px; height: 30px; }
+  nav .links { margin-left: auto; display: flex; gap: 24px; font-size: 14px; font-weight: 400; }
+  nav .links a { color: var(--muted); text-decoration: none; }
+  .hero { display: flex; gap: 48px; align-items: center; padding: 36px 0 70px; }
+  .hero .L { flex: 0 0 460px; }
+  h1 { font-size: 50px; line-height: 1.08; letter-spacing: -1px; }
+  h1 em, h2 em { font-style: normal; color: var(--accent2); }
+  .lead { font-size: 19px; color: var(--muted); margin: 20px 0 26px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-block; border-radius: 10px; padding: 13px 20px; font-weight: 700; text-decoration: none; color: #fff; border: 1px solid #6b5f55; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); }
+  .btn:hover { filter: brightness(1.1); }
+  .note { font-size: 13px; color: var(--dim); margin-top: 14px; }
+  .R { flex: 1; min-width: 0; position: relative; padding-right: 110px; }
+  .win { background: #fff; border-radius: 10px; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
+  .strip { height: 34px; background: #dfe3e8; border-radius: 10px 10px 0 0; display: flex; align-items: flex-end; padding-left: 8px; }
+  .tab { background: #fff; border-radius: 8px 8px 0 0; height: 28px; width: 190px; display: flex; align-items: center; gap: 8px; padding: 0 10px; font-size: 12px; color: #222; }
+  .tab b { color: var(--accent); } .tab i { margin-left: auto; font-style: normal; color: #777; }
+  .ctl { margin-left: auto; padding: 0 14px 8px; font-size: 12px; color: #333; letter-spacing: 8px; }
+  .bar { height: 36px; display: flex; align-items: center; gap: 10px; padding: 0 10px; font-size: 13px; color: #666; border-bottom: 1px solid #e5e5e5; }
+  .url { flex: 1; background: #f1f3f4; border-radius: 14px; padding: 5px 12px; color: #333; }
+  .ext { display: flex; align-items: center; gap: 4px; color: #16a34a; font-weight: 700; font-size: 12px; }
+  .ext img { width: 18px; height: 18px; }
+  .cl { display: block; width: 100%; height: auto; border-radius: 0 0 10px 10px; }
+  .pop { position: absolute; right: 0; top: 30px; width: 220px; height: auto; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+  section { padding: 50px 0; }
+  h2 { font-size: 34px; letter-spacing: -.5px; margin-bottom: 26px; }
+  .video { position: relative; aspect-ratio: 16 / 9; max-width: 960px; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 24px 60px rgba(0,0,0,.45); background: #000; }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; color: var(--muted); font-size: 15px; }
+  .card b { display: block; color: #fff; font-size: 17px; margin: 8px 0 6px; }
+  .card .i { display: inline-flex; width: 34px; height: 34px; border-radius: 9px; background: rgba(217,119,87,.18); color: var(--accent2); align-items: center; justify-content: center; font-size: 18px; }
+  .steps { counter-reset: s; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .steps div { counter-increment: s; color: var(--muted); }
+  .steps div::before { content: counter(s); display: inline-flex; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; align-items: center; justify-content: center; margin-bottom: 10px; }
+  .steps b { display: block; color: #fff; }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px; }
+  summary { cursor: pointer; font-weight: 600; font-size: 17px; }
+  details p { color: var(--muted); margin-top: 10px; }
+  .cta { text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 44px 24px; }
+  .cta .btns { justify-content: center; }
+  footer { color: var(--dim); font-size: 13px; padding: 40px 0 50px; border-top: 1px solid var(--line); margin-top: 30px; }
+  footer a { color: var(--muted); }
+  @media (max-width: 980px) {
+    .hero { flex-direction: column; align-items: stretch; }
+    .hero .L { flex: none; }
+    .grid, .steps { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    h1 { font-size: 36px; } h2 { font-size: 27px; }
+    nav .links { display: none; }
+    .grid, .steps { grid-template-columns: 1fr; }
+    .R { padding-right: 0; }
+    .pop { position: static; display: block; width: 70%; margin: -40px auto 0; }
+    .ctl, .tab { display: none; }
+  }
+  .langs { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; font-size: 13px; }
+  .langs a, .langs span { padding: 3px 9px; border: 1px solid var(--line, #34302b); border-radius: 999px; color: var(--muted, #cfc9bf); text-decoration: none; }
+  .langs span { color: var(--fg, #fff); border-color: var(--accent, #d97757); }
+</style>
+<link rel="alternate" hreflang="en" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/">
+<link rel="alternate" hreflang="sk" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/">
+<link rel="alternate" hreflang="cs" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/">
+<link rel="alternate" hreflang="de" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/de/">
+<link rel="alternate" hreflang="it" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/">
+<link rel="alternate" hreflang="fr" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/fr/">
+<link rel="alternate" hreflang="x-default" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/">
+</head>
+<body>
+<div class="wrap">
+<nav><img src="../assets/icon.png" alt="">Usage Meter for Claude
+  <div class="links"><a href="#features">Fonctionnalités</a><a href="#demo">Démo</a><a href="#how">Fonctionnement</a><a href="#faq">FAQ</a><a href="comment-verifier-les-limites-de-claude.html">Guide</a><a href="privacy.html">Confidentialité</a></div></nav>
+
+<div class="hero">
+  <div class="L">
+    <h1>Ne soyez plus jamais pris de court par la <em>limite d'utilisation de Claude</em></h1>
+    <p class="lead">Une extension de navigateur gratuite qui affiche vos limites Claude de session et hebdomadaires directement dans la barre d'outils – avec une prévision du moment où vous serez à court, l'utilisation de Claude Code et des alertes avant qu'il ne soit trop tard.</p>
+    <div class="btns" id="btns">
+      <a class="btn primary" data-b="chrome" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib">Ajouter à Chrome – c'est gratuit</a>
+      <a class="btn" data-b="edge" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog">Edge</a>
+      <a class="btn" data-b="firefox" href="https://addons.mozilla.org/firefox/addon/usage-meter-for-claude-ai/">Firefox</a>
+    </div>
+    <p class="note">Fonctionne avec Claude Pro, Max et Team · 27 langues · PRO dès 0,99 €/mois</p>
+  </div>
+  <div class="R">
+    <div class="win">
+      <div class="strip"><span class="tab"><b>✳</b> Claude <i>✕</i></span><span class="ctl">—☐✕</span></div>
+      <div class="bar">← → ↻ <span class="url">claude.ai</span> <span class="ext"><img src="../assets/icon.png" alt="">70%</span></div>
+      <img class="cl" src="../assets/claude.jpg" width="2304" height="1038" alt="Limites d'utilisation de Claude affichées sous le champ de message et dans la barre latérale de claude.ai">
+    </div>
+    <img class="pop" src="../assets/popup.png" width="704" height="1386" alt="Fenêtre contextuelle de Usage Meter for Claude : session en cours 70 %, limite hebdomadaire 73 % et prévision">
+  </div>
+</div>
+
+<section id="demo">
+  <h2>Regardez la <em>démo de 50 secondes</em></h2>
+  <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/JG96MamvYg8?rel=0" title="Usage Meter for Claude – démo de 50 secondes" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+</section>
+
+<section id="features">
+  <h2>Tout sur vos <em>limites Claude</em> en un coup d'œil</h2>
+  <div class="grid">
+    <div class="card"><span class="i">◔</span><b>Pourcentage en direct sur l'icône</b>Vert, orange, rouge – la plus élevée de vos utilisations de session et hebdomadaire, toujours sous les yeux.</div><div class="card"><span class="i">↗</span><b>Prévision d'épuisement</b>« À ce rythme, vous atteindrez la limite dans 1 h 20 min » – et le jour où la limite hebdomadaire sera épuisée.</div><div class="card"><span class="i">▭</span><b>Directement sur claude.ai</b>Une fine barre sous le champ de message et un encadré dans la barre latérale affichent vos limites là où vous travaillez.</div><div class="card"><span class="i">◷</span><b>Notifications intelligentes</b>À 80 % et 95 % (réglable), lorsqu'une limite se réinitialise et avant qu'une réinitialisation gratuite de limite n'expire.</div><div class="card"><span class="i">⌘</span><b>Claude Code et limites par modèle</b>L'utilisation depuis Claude Code, l'application de bureau et votre téléphone est aussi comptée – limites par modèle comprises.</div><div class="card"><span class="i">▤</span><b>Historique et aperçu hebdomadaire</b>Graphiques de votre utilisation de session et hebdomadaire, comparée à la semaine précédente. 27 langues, mode clair et sombre.</div>
+  </div>
+</section>
+
+<section id="how">
+  <h2>Comment ça marche</h2>
+  <div class="steps">
+    <div><b>Installez l'extension</b>Depuis le Chrome Web Store, Microsoft Edge Add-ons ou Firefox Add-ons – gratuitement.</div>
+    <div><b>Connectez-vous à claude.ai</b>Dans le même navigateur. L'extension utilise votre session existante – sans clé API ni mot de passe.</div>
+    <div><b>Surveillez vos limites</b>L'icône affiche votre utilisation en %, la fenêtre contextuelle donne les détails, et vous êtes averti avant d'atteindre la limite.</div>
+  </div>
+</section>
+
+<section id="faq">
+  <h2>Questions fréquentes</h2>
+  <details><summary>Comment vérifier ma limite d'utilisation de Claude ?</summary><p>Sur claude.ai, vous pouvez ouvrir Settings → Usage (Paramètres → Utilisation). Usage Meter for Claude affiche les mêmes chiffres en permanence : le pourcentage figure sur l'icône de la barre d'outils, et la fenêtre contextuelle indique la session en cours, la limite hebdomadaire et l'heure de réinitialisation de chacune – sans ouvrir la moindre page de paramètres.</p></details><details><summary>Qu'est-ce que la limite de session de 5 heures de Claude ?</summary><p>Les offres Claude Pro et Max ont une limite d'utilisation par session, qui se réinitialise 5 heures après le début de la session, ainsi qu'une limite hebdomadaire pour l'ensemble des modèles. L'extension affiche les deux, y compris les limites hebdomadaires propres à chaque modèle, et vous indique quand une nouvelle session commence.</p></details><details><summary>Fonctionne-t-elle avec Claude Code ?</summary><p>Oui. Claude Code utilise les mêmes limites que claude.ai : son utilisation est donc incluse dans les chiffres de session et hebdomadaires – tout comme l'utilisation depuis l'application de bureau et votre téléphone. L'extension se met à jour en arrière-plan, même lorsque claude.ai n'est pas ouvert.</p></details><details><summary>Est-ce gratuit ?</summary><p>Oui. L'utilisation sur l'icône, la fenêtre contextuelle, les notifications, la prévision d'épuisement, l'affichage sur claude.ai et 7 jours d'historique sont gratuits. PRO (0,99 €/mois ou 7,99 €/an, essai gratuit de 7 jours) ajoute l'historique sur 30 et 60 jours, plusieurs comptes à la fois et l'export CSV.</p></details><details><summary>Quelles offres Claude sont prises en charge ?</summary><p>Claude Pro, Max et Team. L'offre gratuite de Claude ne fournit pas de données d'utilisation : il n'y a donc rien à afficher.</p></details><details><summary>Mes données sont-elles en sécurité ?</summary><p>L'extension lit uniquement vos propres pourcentages d'utilisation sur claude.ai, à l'aide de la session à laquelle vous êtes déjà connecté. Elle ne lit jamais vos conversations, et rien n'est envoyé au développeur – tout reste dans votre navigateur. Aucun outil d'analyse, aucun pistage.</p></details>
+</section>
+
+<section>
+  <div class="cta">
+    <h2>Arrêtez de deviner ce qu'il reste de votre <em>limite Claude</em></h2>
+    <div class="btns">
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib">Chrome</a>
+      <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog">Microsoft Edge</a>
+      <a class="btn" href="https://addons.mozilla.org/firefox/addon/usage-meter-for-claude-ai/">Firefox</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+<div class="langs"><a href="../" hreflang="en" lang="en">English</a><a href="../sk/" hreflang="sk" lang="sk">Slovenčina</a><a href="../cs/" hreflang="cs" lang="cs">Čeština</a><a href="../de/" hreflang="de" lang="de">Deutsch</a><a href="../it/" hreflang="it" lang="it">Italiano</a><span lang="fr">Français</span></div>
+  <p><a href="comment-verifier-les-limites-de-claude.html">Comment vérifier vos limites d'utilisation de Claude</a> · <a href="pourquoi-la-limite-claude-est-atteinte-si-vite.html">Pourquoi la limite Claude est atteinte si vite</a> · <a href="privacy.html">Politique de confidentialité</a> · <a href="../feedback.html?t=idea&amp;l=fr">Suggérer une amélioration</a> · <a href="mailto:usagemeter.claude@gmail.com">usagemeter.claude@gmail.com</a></p>
+  <p style="margin-top:8px">Extension non officielle, sans lien avec Anthropic ni approuvée par Anthropic. Claude est une marque déposée d'Anthropic, PBC.</p>
+</footer>
+</div>
+<script>
+// hlavné tlačidlo podľa prehliadača návštevníka
+(function () {
+  var ua = navigator.userAgent, b = /Edg\//.test(ua) ? 'edge' : /Firefox\//.test(ua) ? 'firefox' : null;
+  if (!b) return;
+  var names = { edge: 'Ajouter à Edge – c\'est gratuit', firefox: 'Ajouter à Firefox – c\'est gratuit' };
+  var box = document.getElementById('btns'), main = box.querySelector('[data-b="' + b + '"]'), chrome = box.querySelector('[data-b="chrome"]');
+  chrome.classList.remove('primary'); chrome.textContent = 'Chrome';
+  main.classList.add('primary'); main.textContent = names[b];
+  box.insertBefore(main, box.firstChild);
+})();
+</script>
+</body>
+</html>

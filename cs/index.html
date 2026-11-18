@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sledování limitů Claude – Usage Meter for Claude (Chrome, Edge, Firefox)</title>
+<meta name="description" content="Bezplatné rozšíření prohlížeče, které ukazuje vaše limity Claude přímo na panelu nástrojů: 5hodinový limit relace a týdenní limity, spotřebu v Claude Code, upozornění a předpověď, kdy limit vyčerpáte.">
+<link rel="canonical" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/">
+<link rel="icon" href="../assets/icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Usage Meter for Claude – už vás limit Claude nikdy nezaskočí">
+<meta property="og:description" content="Limit relace a týdenní limit Claude na panelu nástrojů, s předpovědí vyčerpání a upozorněními. Zdarma pro Chrome, Edge a Firefox.">
+<meta property="og:url" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/">
+<meta property="og:image" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Usage Meter for Claude", "applicationCategory": "BrowserApplication", "operatingSystem": "Chrome, Microsoft Edge, Firefox", "description": "Sledování limitů Claude: limit relace a týdenní limit na panelu nástrojů prohlížeče, limity Claude Code, upozornění a předpověď, kdy limit vyčerpáte.", "inLanguage": "cs", "url": "https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/", "image": "https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}}, {"@context": "https://schema.org", "@type": "VideoObject", "name": "Usage Meter for Claude – 50sekundová ukázka", "description": "Jak Usage Meter for Claude ukazuje limit relace a týdenní limit Claude na panelu nástrojů prohlížeče, včetně časů obnovení, předpovědi a oznámení.", "thumbnailUrl": "https://i.ytimg.com/vi/JG96MamvYg8/maxresdefault.jpg", "uploadDate": "2026-11-17", "duration": "PT53S", "contentUrl": "https://youtu.be/JG96MamvYg8", "embedUrl": "https://www.youtube-nocookie.com/embed/JG96MamvYg8"}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Jak zjistím svůj limit v Claude?", "acceptedAnswer": {"@type": "Answer", "text": "Na claude.ai můžete otevřít Settings → Usage (Nastavení → Využití). Usage Meter for Claude vám stejná čísla ukazuje neustále: procento je na ikoně v panelu nástrojů a vyskakovací okno zobrazuje aktuální relaci, týdenní limit a čas obnovení každého z nich – bez otevírání nastavení."}}, {"@type": "Question", "name": "Co je 5hodinový limit relace v Claude?", "acceptedAnswer": {"@type": "Answer", "text": "Tarify Claude Pro a Max mají limit na relaci, který se obnoví 5 hodin po jejím začátku, a k tomu týdenní limit pro všechny modely. Rozšíření ukazuje oba, včetně týdenních limitů pro jednotlivé modely, a dá vám vědět, když začíná nová relace."}}, {"@type": "Question", "name": "Funguje to s Claude Code?", "acceptedAnswer": {"@type": "Answer", "text": "Ano. Claude Code čerpá ze stejných limitů jako claude.ai, takže jeho spotřeba je zahrnutá v číslech relace i týdne – stejně jako spotřeba z desktopové aplikace a telefonu. Rozšíření se aktualizuje na pozadí, i když claude.ai nemáte otevřené."}}, {"@type": "Question", "name": "Je to zdarma?", "acceptedAnswer": {"@type": "Answer", "text": "Ano. Spotřeba na ikoně, vyskakovací okno, oznámení, předpověď vyčerpání, spotřeba přímo na claude.ai a 7denní historie jsou zdarma. PRO (0,99 € měsíčně nebo 7,99 € ročně, 7 dní na vyzkoušení zdarma) přidává historii za 30 a 60 dní, několik účtů najednou a export do CSV."}}, {"@type": "Question", "name": "Které tarify Claude jsou podporované?", "acceptedAnswer": {"@type": "Answer", "text": "Claude Pro, Max a Team. Bezplatný tarif Claude údaje o spotřebě neposkytuje, takže není co zobrazit."}}, {"@type": "Question", "name": "Jsou moje data v bezpečí?", "acceptedAnswer": {"@type": "Answer", "text": "Rozšíření čte z claude.ai pouze procenta vaší vlastní spotřeby, a to prostřednictvím relace, ve které už jste přihlášeni. Nikdy nečte vaše konverzace a vývojáři se nic neodesílá – vše zůstává ve vašem prohlížeči. Žádná analytika, žádné sledování."}}]}]</script>
+<style>
+  :root { --bg: #1a1816; --card: #24211e; --line: #34302b; --fg: #fff; --muted: #cfc9bf; --dim: #9d968c; --accent: #d97757; --accent2: #e08a6a; }
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: radial-gradient(circle at 80% 0, rgba(217,119,87,.30), transparent 40%) no-repeat, var(--bg); color: var(--fg); font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; line-height: 1.5; }
+  a { color: var(--accent2); }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; align-items: center; gap: 10px; padding: 22px 0; font-weight: 600; }
+  nav img { width: 30px; height: 30px; }
+  nav .links { margin-left: auto; display: flex; gap: 24px; font-size: 14px; font-weight: 400; }
+  nav .links a { color: var(--muted); text-decoration: none; }
+  .hero { display: flex; gap: 48px; align-items: center; padding: 36px 0 70px; }
+  .hero .L { flex: 0 0 460px; }
+  h1 { font-size: 50px; line-height: 1.08; letter-spacing: -1px; }
+  h1 em, h2 em { font-style: normal; color: var(--accent2); }
+  .lead { font-size: 19px; color: var(--muted); margin: 20px 0 26px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn { display: inline-block; border-radius: 10px; padding: 13px 20px; font-weight: 700; text-decoration: none; color: #fff; border: 1px solid #6b5f55; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); }
+  .btn:hover { filter: brightness(1.1); }
+  .note { font-size: 13px; color: var(--dim); margin-top: 14px; }
+  .R { flex: 1; min-width: 0; position: relative; padding-right: 110px; }
+  .win { background: #fff; border-radius: 10px; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
+  .strip { height: 34px; background: #dfe3e8; border-radius: 10px 10px 0 0; display: flex; align-items: flex-end; padding-left: 8px; }
+  .tab { background: #fff; border-radius: 8px 8px 0 0; height: 28px; width: 190px; display: flex; align-items: center; gap: 8px; padding: 0 10px; font-size: 12px; color: #222; }
+  .tab b { color: var(--accent); } .tab i { margin-left: auto; font-style: normal; color: #777; }
+  .ctl { margin-left: auto; padding: 0 14px 8px; font-size: 12px; color: #333; letter-spacing: 8px; }
+  .bar { height: 36px; display: flex; align-items: center; gap: 10px; padding: 0 10px; font-size: 13px; color: #666; border-bottom: 1px solid #e5e5e5; }
+  .url { flex: 1; background: #f1f3f4; border-radius: 14px; padding: 5px 12px; color: #333; }
+  .ext { display: flex; align-items: center; gap: 4px; color: #16a34a; font-weight: 700; font-size: 12px; }
+  .ext img { width: 18px; height: 18px; }
+  .cl { display: block; width: 100%; height: auto; border-radius: 0 0 10px 10px; }
+  .pop { position: absolute; right: 0; top: 30px; width: 220px; height: auto; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,.6); }
+  section { padding: 50px 0; }
+  h2 { font-size: 34px; letter-spacing: -.5px; margin-bottom: 26px; }
+  .video { position: relative; aspect-ratio: 16 / 9; max-width: 960px; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); box-shadow: 0 24px 60px rgba(0,0,0,.45); background: #000; }
+  .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; color: var(--muted); font-size: 15px; }
+  .card b { display: block; color: #fff; font-size: 17px; margin: 8px 0 6px; }
+  .card .i { display: inline-flex; width: 34px; height: 34px; border-radius: 9px; background: rgba(217,119,87,.18); color: var(--accent2); align-items: center; justify-content: center; font-size: 18px; }
+  .steps { counter-reset: s; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .steps div { counter-increment: s; color: var(--muted); }
+  .steps div::before { content: counter(s); display: inline-flex; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; align-items: center; justify-content: center; margin-bottom: 10px; }
+  .steps b { display: block; color: #fff; }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px; }
+  summary { cursor: pointer; font-weight: 600; font-size: 17px; }
+  details p { color: var(--muted); margin-top: 10px; }
+  .cta { text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 44px 24px; }
+  .cta .btns { justify-content: center; }
+  footer { color: var(--dim); font-size: 13px; padding: 40px 0 50px; border-top: 1px solid var(--line); margin-top: 30px; }
+  footer a { color: var(--muted); }
+  @media (max-width: 980px) {
+    .hero { flex-direction: column; align-items: stretch; }
+    .hero .L { flex: none; }
+    .grid, .steps { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    h1 { font-size: 36px; } h2 { font-size: 27px; }
+    nav .links { display: none; }
+    .grid, .steps { grid-template-columns: 1fr; }
+    .R { padding-right: 0; }
+    .pop { position: static; display: block; width: 70%; margin: -40px auto 0; }
+    .ctl, .tab { display: none; }
+  }
+  .langs { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; font-size: 13px; }
+  .langs a, .langs span { padding: 3px 9px; border: 1px solid var(--line, #34302b); border-radius: 999px; color: var(--muted, #cfc9bf); text-decoration: none; }
+  .langs span { color: var(--fg, #fff); border-color: var(--accent, #d97757); }
+</style>
+<link rel="alternate" hreflang="en" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/">
+<link rel="alternate" hreflang="sk" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/">
+<link rel="alternate" hreflang="cs" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/">
+<link rel="alternate" hreflang="de" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/de/">
+<link rel="alternate" hreflang="it" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/">
+<link rel="alternate" hreflang="fr" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/fr/">
+<link rel="alternate" hreflang="x-default" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/">
+</head>
+<body>
+<div class="wrap">
+<nav><img src="../assets/icon.png" alt="">Usage Meter for Claude
+  <div class="links"><a href="#features">Funkce</a><a href="#demo">Ukázka</a><a href="#how">Jak to funguje</a><a href="#faq">Časté dotazy</a><a href="jak-zjistit-limity-claude.html">Návod</a><a href="privacy.html">Soukromí</a></div></nav>
+
+<div class="hero">
+  <div class="L">
+    <h1>Už vás <em>limit Claude</em> nikdy nezaskočí</h1>
+    <p class="lead">Bezplatné rozšíření prohlížeče, které ukazuje limit relace a týdenní limit Claude přímo na panelu nástrojů – s předpovědí, kdy limit vyčerpáte, spotřebou v Claude Code a upozorněními, dokud je ještě čas.</p>
+    <div class="btns" id="btns">
+      <a class="btn primary" data-b="chrome" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib">Přidat do Chrome – zdarma</a>
+      <a class="btn" data-b="edge" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog">Edge</a>
+      <a class="btn" data-b="firefox" href="https://addons.mozilla.org/firefox/addon/usage-meter-for-claude-ai/">Firefox</a>
+    </div>
+    <p class="note">Funguje s Claude Pro, Max a Team · 27 jazyků · PRO od 0,99 € měsíčně</p>
+  </div>
+  <div class="R">
+    <div class="win">
+      <div class="strip"><span class="tab"><b>✳</b> Claude <i>✕</i></span><span class="ctl">—☐✕</span></div>
+      <div class="bar">← → ↻ <span class="url">claude.ai</span> <span class="ext"><img src="../assets/icon.png" alt="">70%</span></div>
+      <img class="cl" src="../assets/claude.jpg" width="2304" height="1038" alt="Limity Claude zobrazené pod polem pro zprávu a v postranním panelu na claude.ai">
+    </div>
+    <img class="pop" src="../assets/popup.png" width="704" height="1386" alt="Vyskakovací okno Usage Meter for Claude: aktuální relace 70 %, týdenní limit 73 % a předpověď">
+  </div>
+</div>
+
+<section id="demo">
+  <h2>Podívejte se na <em>50sekundovou ukázku</em></h2>
+  <div class="video"><iframe src="https://www.youtube-nocookie.com/embed/JG96MamvYg8?rel=0" title="Usage Meter for Claude – 50sekundová ukázka" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+</section>
+
+<section id="features">
+  <h2>Vše o vašich <em>limitech Claude</em> na první pohled</h2>
+  <div class="grid">
+    <div class="card"><span class="i">◔</span><b>Aktuální % na ikoně</b>Zelená, oranžová, červená – vyšší z hodnot spotřeby relace a týdne, vždy na očích.</div><div class="card"><span class="i">↗</span><b>Předpověď vyčerpání</b>„Při tomto tempu narazíte na limit za 1 h 20 min“ – a ve který den vyčerpáte týdenní limit.</div><div class="card"><span class="i">▭</span><b>Přímo na claude.ai</b>Tenký pruh pod polem pro zprávu a rámeček v postranním panelu ukazují vaše limity tam, kde pracujete.</div><div class="card"><span class="i">◷</span><b>Chytrá oznámení</b>Při 80 % a 95 % (nastavitelné), při obnovení limitu a před vypršením bezplatného obnovení limitu.</div><div class="card"><span class="i">⌘</span><b>Claude Code a limity modelů</b>Započítává se i spotřeba z Claude Code, desktopové aplikace a telefonu – včetně limitů pro jednotlivé modely.</div><div class="card"><span class="i">▤</span><b>Historie a týdenní přehled</b>Grafy spotřeby relace a týdne v porovnání s minulým týdnem. 27 jazyků, světlý i tmavý režim.</div>
+  </div>
+</section>
+
+<section id="how">
+  <h2>Jak to funguje</h2>
+  <div class="steps">
+    <div><b>Nainstalujte rozšíření</b>Z Internetového obchodu Chrome, doplňků Microsoft Edge nebo doplňků Firefoxu – zdarma.</div>
+    <div><b>Přihlaste se na claude.ai</b>Ve stejném prohlížeči. Rozšíření využívá vaši stávající relaci – žádný klíč API, žádné heslo.</div>
+    <div><b>Sledujte své limity</b>Ikona ukazuje spotřebu v %, vyskakovací okno podrobnosti a dostanete upozornění dřív, než na limit narazíte.</div>
+  </div>
+</section>
+
+<section id="faq">
+  <h2>Časté dotazy</h2>
+  <details><summary>Jak zjistím svůj limit v Claude?</summary><p>Na claude.ai můžete otevřít Settings → Usage (Nastavení → Využití). Usage Meter for Claude vám stejná čísla ukazuje neustále: procento je na ikoně v panelu nástrojů a vyskakovací okno zobrazuje aktuální relaci, týdenní limit a čas obnovení každého z nich – bez otevírání nastavení.</p></details><details><summary>Co je 5hodinový limit relace v Claude?</summary><p>Tarify Claude Pro a Max mají limit na relaci, který se obnoví 5 hodin po jejím začátku, a k tomu týdenní limit pro všechny modely. Rozšíření ukazuje oba, včetně týdenních limitů pro jednotlivé modely, a dá vám vědět, když začíná nová relace.</p></details><details><summary>Funguje to s Claude Code?</summary><p>Ano. Claude Code čerpá ze stejných limitů jako claude.ai, takže jeho spotřeba je zahrnutá v číslech relace i týdne – stejně jako spotřeba z desktopové aplikace a telefonu. Rozšíření se aktualizuje na pozadí, i když claude.ai nemáte otevřené.</p></details><details><summary>Je to zdarma?</summary><p>Ano. Spotřeba na ikoně, vyskakovací okno, oznámení, předpověď vyčerpání, spotřeba přímo na claude.ai a 7denní historie jsou zdarma. PRO (0,99 € měsíčně nebo 7,99 € ročně, 7 dní na vyzkoušení zdarma) přidává historii za 30 a 60 dní, několik účtů najednou a export do CSV.</p></details><details><summary>Které tarify Claude jsou podporované?</summary><p>Claude Pro, Max a Team. Bezplatný tarif Claude údaje o spotřebě neposkytuje, takže není co zobrazit.</p></details><details><summary>Jsou moje data v bezpečí?</summary><p>Rozšíření čte z claude.ai pouze procenta vaší vlastní spotřeby, a to prostřednictvím relace, ve které už jste přihlášeni. Nikdy nečte vaše konverzace a vývojáři se nic neodesílá – vše zůstává ve vašem prohlížeči. Žádná analytika, žádné sledování.</p></details>
+</section>
+
+<section>
+  <div class="cta">
+    <h2>Přestaňte hádat, kolik vám z <em>limitu Claude</em> zbývá</h2>
+    <div class="btns">
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib">Chrome</a>
+      <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog">Microsoft Edge</a>
+      <a class="btn" href="https://addons.mozilla.org/firefox/addon/usage-meter-for-claude-ai/">Firefox</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+<div class="langs"><a href="../" hreflang="en" lang="en">English</a><a href="../sk/" hreflang="sk" lang="sk">Slovenčina</a><span lang="cs">Čeština</span><a href="../de/" hreflang="de" lang="de">Deutsch</a><a href="../it/" hreflang="it" lang="it">Italiano</a><a href="../fr/" hreflang="fr" lang="fr">Français</a></div>
+  <p><a href="jak-zjistit-limity-claude.html">Jak zjistit své limity v Claude</a> · <a href="proc-se-limit-claude-vycerpa-tak-rychle.html">Proč se limit Claude vyčerpá tak rychle</a> · <a href="privacy.html">Zásady ochrany soukromí</a> · <a href="../feedback.html?t=idea&amp;l=cs">Navrhnout vylepšení</a> · <a href="mailto:usagemeter.claude@gmail.com">usagemeter.claude@gmail.com</a></p>
+  <p style="margin-top:8px">Neoficiální rozšíření – není nijak spojeno se společností Anthropic ani jí schváleno. Claude je ochranná známka společnosti Anthropic, PBC.</p>
+</footer>
+</div>
+<script>
+// hlavné tlačidlo podľa prehliadača návštevníka
+(function () {
+  var ua = navigator.userAgent, b = /Edg\//.test(ua) ? 'edge' : /Firefox\//.test(ua) ? 'firefox' : null;
+  if (!b) return;
+  var names = { edge: 'Přidat do Edge – zdarma', firefox: 'Přidat do Firefoxu – zdarma' };
+  var box = document.getElementById('btns'), main = box.querySelector('[data-b="' + b + '"]'), chrome = box.querySelector('[data-b="chrome"]');
+  chrome.classList.remove('primary'); chrome.textContent = 'Chrome';
+  main.classList.add('primary'); main.textContent = names[b];
+  box.insertBefore(main, box.firstChild);
+})();
+</script>
+</body>
+</html>
