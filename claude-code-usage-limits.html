@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code Usage Limits Explained: What Counts, How to Check and How to Save</title>
+<meta name="description" content="Claude Code shares your Pro, Max or Ultra limits with claude.ai. How to check usage with /usage, why Claude Code drains the 5-hour and weekly limits so fast, and how to make them last longer.">
+<link rel="canonical" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-code-usage-limits.html">
+<link rel="icon" href="assets/icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Code Usage Limits Explained: What Counts, How to Check and How to Save">
+<meta property="og:description" content="Claude Code shares your Pro, Max or Ultra limits with claude.ai. How to check usage with /usage, why Claude Code drains the 5-hour and weekly limits so fast, and how to make them last longer.">
+<meta property="og:url" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-code-usage-limits.html">
+<meta property="og:image" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"Claude Code Usage Limits Explained: What Counts, How to Check and How to Save","description":"Claude Code shares your Pro, Max or Ultra limits with claude.ai. How to check usage with /usage, why Claude Code drains the 5-hour and weekly limits so fast, and how to make them last longer.","inLanguage":"en","datePublished":"2026-11-20","dateModified":"2026-11-20","image":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png","author":{"@type":"Organization","name":"Usage Meter for Claude","url":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/"},"mainEntityOfPage":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-code-usage-limits.html"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does Claude Code have its own usage limit?","acceptedAnswer":{"@type":"Answer","text":"No. With a Pro, Max or Ultra subscription, Claude Code shares the same 5-hour session and weekly limits as claude.ai and Claude Desktop."}},{"@type":"Question","name":"How do I check my usage in Claude Code?","acceptedAnswer":{"@type":"Answer","text":"Run /usage. It shows your plan usage and what is using it. For usage across all your devices, check Settings → Usage on claude.ai."}},{"@type":"Question","name":"Why does Claude Code use up my limit so quickly?","acceptedAnswer":{"@type":"Answer","text":"Every request carries the whole conversation plus tool results, and subagents, MCP servers and long sessions add more. Clearing context between tasks and using lighter models helps the most."}},{"@type":"Question","name":"Does switching models help when I hit the limit?","acceptedAnswer":{"@type":"Answer","text":"Not for the session or weekly limit, which apply across all models. It only helps if you hit a model-specific weekly limit."}},{"@type":"Question","name":"Can I keep working after hitting the limit?","acceptedAnswer":{"@type":"Answer","text":"Yes, if usage credits are turned on for your paid plan – you pay for the extra usage up to a monthly cap you set. Otherwise you wait for the reset."}}]}]</script>
+<style>
+  :root { --bg: #1a1816; --card: #24211e; --line: #34302b; --fg: #fff; --text: #e2ddd5; --muted: #cfc9bf; --dim: #9d968c; --accent: #d97757; --accent2: #e08a6a; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: radial-gradient(circle at 85% 0, rgba(217,119,87,.25), transparent 35%) no-repeat, var(--bg); color: var(--text); font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; line-height: 1.65; }
+  a { color: var(--accent2); }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; align-items: center; gap: 10px; padding: 22px 0; font-weight: 600; }
+  nav a.home { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
+  nav img { width: 30px; height: 30px; }
+  nav .links { margin-left: auto; display: flex; gap: 22px; font-size: 14px; font-weight: 400; }
+  nav .links a { color: var(--muted); text-decoration: none; }
+  header { padding: 30px 0 10px; }
+  h1 { font-size: 40px; line-height: 1.15; letter-spacing: -.8px; color: #fff; }
+  h1 em, h2 em { font-style: normal; color: var(--accent2); }
+  .meta { color: var(--dim); font-size: 14px; margin-top: 12px; }
+  h2 { font-size: 26px; color: #fff; margin: 42px 0 12px; letter-spacing: -.3px; }
+  h3 { font-size: 19px; color: #fff; margin: 24px 0 8px; }
+  p, li { font-size: 17px; }
+  p { margin: 12px 0; }
+  ol, ul { padding-left: 24px; margin: 10px 0; }
+  li { margin: 6px 0; }
+  code, kbd { background: #2e2a26; border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; font-size: 15px; color: #fff; font-family: Consolas, 'SF Mono', monospace; }
+  .answer { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; margin: 24px 0; }
+  .answer b { color: #fff; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: #fff; font-weight: 600; }
+  .cta { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 26px; margin: 36px 0; display: flex; gap: 24px; align-items: center; }
+  .cta img { width: 200px; height: auto; border-radius: 10px; box-shadow: 0 16px 40px rgba(0,0,0,.5); flex: none; }
+  .cta h2 { margin-top: 0; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .btn { display: inline-block; border-radius: 10px; padding: 11px 18px; font-weight: 700; text-decoration: none; color: #fff; border: 1px solid #6b5f55; font-size: 15px; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); }
+  .note { color: var(--dim); font-size: 14px; }
+  footer { color: var(--dim); font-size: 13px; padding: 36px 0 50px; border-top: 1px solid var(--line); margin-top: 40px; }
+  footer a { color: var(--muted); }
+  @media (max-width: 640px) {
+    h1 { font-size: 30px; } h2 { font-size: 22px; }
+    nav .links { display: none; }
+    .cta { flex-direction: column; text-align: center; }
+    .cta .btns { justify-content: center; }
+  }
+
+  .langs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; font-size: 13px; }
+  .langs a, .langs span { padding: 3px 9px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); text-decoration: none; }
+  .langs span { color: #fff; border-color: var(--accent); }
+</style>
+<link rel="alternate" hreflang="en" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-code-usage-limits.html">
+<link rel="alternate" hreflang="sk" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/limity-claude-code.html">
+<link rel="alternate" hreflang="cs" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/limity-claude-code.html">
+<link rel="alternate" hreflang="de" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/de/claude-code-nutzungslimits.html">
+<link rel="alternate" hreflang="it" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/limiti-di-claude-code.html">
+<link rel="alternate" hreflang="fr" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/fr/limites-claude-code.html">
+<link rel="alternate" hreflang="x-default" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-code-usage-limits.html">
+</head>
+<body>
+<div class="wrap">
+<nav><a class="home" href="./"><img src="assets/icon.png" alt="">Usage Meter for Claude</a>
+  <div class="links"><a href="./#features">Features</a><a href="claude-usage-limits.html">Check your limits</a><a href="./#faq">FAQ</a><a href="privacy.html">Privacy</a></div></nav>
+
+<header>
+  <h1><em>Claude Code usage limits</em> explained: what counts, how to check and how to save</h1>
+  <p class="meta">Updated 20 November 2026 · 6 min read</p>
+  <div class="langs"><span lang="en">English</span><a href="sk/limity-claude-code.html" hreflang="sk" lang="sk">Slovenčina</a><a href="cs/limity-claude-code.html" hreflang="cs" lang="cs">Čeština</a><a href="de/claude-code-nutzungslimits.html" hreflang="de" lang="de">Deutsch</a><a href="it/limiti-di-claude-code.html" hreflang="it" lang="it">Italiano</a><a href="fr/limites-claude-code.html" hreflang="fr" lang="fr">Français</a></div>
+</header>
+
+<div class="answer">
+  <b>Short answer:</b> with a Pro, Max or Ultra plan, Claude Code has <b>no separate quota</b> – it uses the <b>same 5-hour session and weekly limits</b> as claude.ai and Claude Desktop. Run <code>/usage</code> in Claude Code to see your plan usage and what is using it. Long sessions, big context, subagents and MCP servers use the limit fastest; <code>/clear</code>, a lighter model and specific prompts save the most.
+</div>
+
+<h2>Claude Code shares your plan's limits</h2>
+<p>When you sign in to Claude Code with your claude.ai subscription, all activity in Claude Code, the claude.ai chat, Claude Desktop and the IDE extensions (VS Code, JetBrains) counts against <b>one shared set of limits</b>:</p>
+<table>
+  <tr><th>Plan</th><th>Limits that apply to Claude Code</th></tr>
+  <tr><td>Pro</td><td>5-hour session limit + weekly limit</td></tr>
+  <tr><td>Max</td><td>5× Pro, every 5 hours and every week; plus a separate weekly limit for the largest model</td></tr>
+  <tr><td>Ultra</td><td>10× Pro every week; verified accounts have no 5-hour limit; separate weekly limit for the largest model</td></tr>
+</table>
+<p>So a morning of heavy coding can leave little for chatting in the afternoon – and the other way round. For a full comparison of the plans see <a href="claude-pro-vs-max-vs-ultra.html">Claude Pro vs Max vs Ultra</a>.</p>
+<p><b>Careful with API keys:</b> if the <code>ANTHROPIC_API_KEY</code> environment variable is set, Claude Code uses that key instead of your subscription – and you pay API prices for every request.</p>
+
+<h2>How to check your Claude Code usage</h2>
+<ul>
+  <li><b><code>/usage</code></b> – shows your plan usage bars and a breakdown of what is using them: skills, subagents, plugins and individual MCP servers, with recommendations such as trimming a large <code>CLAUDE.md</code>. Press <kbd>d</kbd> / <kbd>w</kbd> to switch between the last 24 hours and 7 days.</li>
+  <li><b>Settings → Usage on claude.ai</b> – the authoritative view of your session and weekly limits, including usage from other computers, the chat and your phone. The <code>/usage</code> breakdown only uses the local session history of the machine you're on.</li>
+  <li><b><code>/context</code></b> – shows what is currently taking up space in the context window.</li>
+</ul>
+
+<h2>Why Claude Code uses your limit so fast</h2>
+<ul>
+  <li><b>The whole conversation is sent with every request</b> – and every tool call (reading a file, running tests) is another request carrying that context. A one-line question in a session that has been open all day still costs the whole history.</li>
+  <li><b>Coming back after a break</b> – your first message after the prompt cache expires reprocesses the full context.</li>
+  <li><b>Subagents and agent teams</b> – each one sends its own requests on top of your main session.</li>
+  <li><b>Background work</b> – scheduled tasks and loops keep running while you're away.</li>
+  <li><b>Large <code>CLAUDE.md</code> and many MCP servers</b> – loaded into context with every session.</li>
+  <li><b>The largest model and high effort</b> – thinking tokens count as output.</li>
+</ul>
+
+<h2>How to make your limit last longer</h2>
+<ol>
+  <li><b><code>/clear</code> between unrelated tasks.</b> Stale context is resent with every message. Use <code>/rename</code> first if you want to <code>/resume</code> the session later.</li>
+  <li><b><code>/compact</code> for long tasks you want to continue</b> – it summarises the conversation (it is itself a large request, so don't run it every few minutes).</li>
+  <li><b>Pick the model for the job</b> with <code>/model</code>, and lower <code>/effort</code> for simple work.</li>
+  <li><b>Trim your setup:</b> keep <code>CLAUDE.md</code> short (move specialised instructions into skills) and disable MCP servers you don't use with <code>/mcp</code>.</li>
+  <li><b>Write specific prompts</b> – "add input validation to the login function in auth.ts" instead of "improve this codebase".</li>
+  <li><b>Use plan mode</b> (<kbd>Shift</kbd>+<kbd>Tab</kbd>) for bigger changes and press <kbd>Esc</kbd> early if Claude heads the wrong way.</li>
+  <li><b>Close sessions and stop loops</b> you no longer need.</li>
+</ol>
+<p>More causes and fixes – also for the claude.ai chat – are in <a href="why-claude-limit-runs-out.html">Why do I hit the Claude usage limit so fast?</a></p>
+
+<h2>When you hit the limit in Claude Code</h2>
+<ul>
+  <li>Claude Code tells you whether you hit the <b>session</b> or the <b>weekly</b> limit and when it resets. Switching models doesn't help for these – they apply across all models (it only helps with a model-specific weekly limit).</li>
+  <li>If the 5-hour limit is reached in the middle of a response, Claude Code may finish it with a small, capped allowance ("wrapping up").</li>
+  <li>With <b>usage credits</b> turned on (<code>/usage-credits</code>), you can keep working and pay for the extra usage, up to a monthly cap you set.</li>
+  <li>Otherwise, wait for the reset – Claude Code can also wait and continue the interrupted task automatically.</li>
+</ul>
+
+<div class="cta">
+  <img src="assets/popup.png" alt="Usage Meter for Claude popup showing session and weekly usage">
+  <div>
+    <h2>See your limit <em>before you start a big task</em></h2>
+    <p><b>Usage Meter for Claude</b> is a free browser extension that keeps your Claude usage on the toolbar icon – including usage from Claude Code. The popup shows your session and weekly limits with reset times and a forecast of when you'll run out at your current pace, and you get a notification before you hit the limit. Ideal for deciding whether to start that refactoring now or after the reset.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib">Chrome</a>
+      <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog">Microsoft Edge</a>
+      <a class="btn" href="https://addons.mozilla.org/firefox/addon/usage-meter-for-claude-ai/">Firefox</a>
+    </div>
+    <p class="note">Works with Claude Pro, Max and Team. Nothing is sent to the developer – your data stays in your browser.</p>
+  </div>
+</div>
+
+<h2>Frequently asked questions</h2>
+<h3>Does Claude Code have its own usage limit?</h3>
+<p>No. With a Pro, Max or Ultra subscription, Claude Code shares the same 5-hour session and weekly limits as claude.ai and Claude Desktop.</p>
+<h3>How do I check my usage in Claude Code?</h3>
+<p>Run /usage. It shows your plan usage and what is using it. For usage across all your devices, check Settings → Usage on claude.ai.</p>
+<h3>Why does Claude Code use up my limit so quickly?</h3>
+<p>Every request carries the whole conversation plus tool results, and subagents, MCP servers and long sessions add more. Clearing context between tasks and using lighter models helps the most.</p>
+<h3>Does switching models help when I hit the limit?</h3>
+<p>Not for the session or weekly limit, which apply across all models. It only helps if you hit a model-specific weekly limit.</p>
+<h3>Can I keep working after hitting the limit?</h3>
+<p>Yes, if usage credits are turned on for your paid plan – you pay for the extra usage up to a monthly cap you set. Otherwise you wait for the reset.</p>
+
+<p class="note" style="margin-top:30px">Sources: Claude Code docs – <a href="https://code.claude.com/docs/en/costs" rel="nofollow">Manage costs effectively</a>; Claude Help Center – <a href="https://support.claude.com/en/articles/11145838-using-claude-code-with-your-pro-or-max-plan" rel="nofollow">Use Claude Code with your Pro, Max or Ultra plan</a>, <a href="https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work" rel="nofollow">How do usage and length limits work?</a>.</p>
+
+<footer>
+  <p><a href="./">Usage Meter for Claude</a> · <a href="claude-usage-limits.html">How to check your Claude usage limits</a> · <a href="why-claude-limit-runs-out.html">Why the Claude limit runs out so fast</a> · <a href="claude-pro-vs-max-vs-ultra.html">Claude Pro vs Max vs Ultra</a> · <a href="privacy.html">Privacy policy</a> · <a href="feedback.html?t=idea&amp;l=en">Suggest an improvement</a> · <a href="mailto:usagemeter.claude@gmail.com">usagemeter.claude@gmail.com</a></p>
+  <p style="margin-top:8px">Unofficial extension and guide, not affiliated with or endorsed by Anthropic. Claude is a trademark of Anthropic, PBC.</p>
+</footer>
+</div>
+</body>
+</html>

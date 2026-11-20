@@ -13,7 +13,7 @@
 
 ## Features
 
-- **Usage on the toolbar icon** – green, orange or red, showing the higher of your session and weekly usage
+- **Usage on the toolbar icon** – green, orange or red, showing your current session usage (or the weekly one, if you prefer)
 - **Popup** with the current session, weekly and per-model limits and when each one resets
 - **Forecast** – when you'll hit the limit at your current pace, including the day your weekly limit runs out
 - **Right on claude.ai** – your usage under the message box and in the sidebar
@@ -33,6 +33,7 @@ The extension only reads your own usage percentages from claude.ai using the ses
 - [How to check your Claude usage limits (session, weekly & Claude Code)](https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-usage-limits.html)
 - [Why do I hit the Claude usage limit so fast? 10 reasons and fixes](https://usagemeterclaude-source.github.io/usage-meter-for-claude/why-claude-limit-runs-out.html)
 - [Claude Pro vs Max vs Ultra: how much usage do you get?](https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-pro-vs-max-vs-ultra.html)
+- [Claude Code usage limits explained](https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-code-usage-limits.html)
 
 Also in [Slovenčina](https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/) · [Čeština](https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/) · [Deutsch](https://usagemeterclaude-source.github.io/usage-meter-for-claude/de/) · [Italiano](https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/) · [Français](https://usagemeterclaude-source.github.io/usage-meter-for-claude/fr/)
 
