@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When Does the Claude Usage Limit Reset? 5-Hour Session and Weekly Limits</title>
+<meta name="description" content="The Claude session limit resets 5 hours after your first message; the weekly limit resets at a fixed day and time assigned to your account. How to see the exact reset time and what to do until then.">
+<link rel="canonical" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-usage-limit-reset.html">
+<link rel="icon" href="assets/icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="When Does the Claude Usage Limit Reset? 5-Hour Session and Weekly Limits">
+<meta property="og:description" content="The Claude session limit resets 5 hours after your first message; the weekly limit resets at a fixed day and time assigned to your account. How to see the exact reset time and what to do until then.">
+<meta property="og:url" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-usage-limit-reset.html">
+<meta property="og:image" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"When Does the Claude Usage Limit Reset? 5-Hour Session and Weekly Limits","description":"The Claude session limit resets 5 hours after your first message; the weekly limit resets at a fixed day and time assigned to your account. How to see the exact reset time and what to do until then.","inLanguage":"en","datePublished":"2026-11-24","dateModified":"2026-11-24","image":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png","author":{"@type":"Organization","name":"Usage Meter for Claude","url":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/"},"mainEntityOfPage":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-usage-limit-reset.html"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When does the Claude 5-hour limit reset?","acceptedAnswer":{"@type":"Answer","text":"Five hours after the first message of the session. The window starts when you send your first message and then resets in full – it is not a rolling window."}},{"@type":"Question","name":"When does the Claude weekly limit reset?","acceptedAnswer":{"@type":"Answer","text":"At a fixed day and time each week that is assigned to your account. It doesn't depend on when you start using Claude or when your subscription began. The exact time is shown in Settings → Usage on claude.ai."}},{"@type":"Question","name":"Can I reset my Claude limit early?","acceptedAnswer":{"@type":"Answer","text":"Only if Anthropic has given your account a limit reset – then you can use it in Settings → Usage with \"Reset for free\" before it expires. Usage credits and bundles let you keep working, but they don't move the reset time."}},{"@type":"Question","name":"Does Claude Code have a different reset time?","acceptedAnswer":{"@type":"Answer","text":"No. With a Pro, Max or Ultra plan, Claude Code shares the same session and weekly limits as claude.ai and Claude Desktop, so the reset times are the same."}},{"@type":"Question","name":"Does upgrading my plan reset the limit?","acceptedAnswer":{"@type":"Answer","text":"It isn't a reset as such, but the new plan's higher limits apply right away."}}]}]</script>
+<style>
+  :root { --bg: #1a1816; --card: #24211e; --line: #34302b; --fg: #fff; --text: #e2ddd5; --muted: #cfc9bf; --dim: #9d968c; --accent: #d97757; --accent2: #e08a6a; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: radial-gradient(circle at 85% 0, rgba(217,119,87,.25), transparent 35%) no-repeat, var(--bg); color: var(--text); font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; line-height: 1.65; }
+  a { color: var(--accent2); }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; align-items: center; gap: 10px; padding: 22px 0; font-weight: 600; }
+  nav a.home { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
+  nav img { width: 30px; height: 30px; }
+  nav .links { margin-left: auto; display: flex; gap: 22px; font-size: 14px; font-weight: 400; }
+  nav .links a { color: var(--muted); text-decoration: none; }
+  header { padding: 30px 0 10px; }
+  h1 { font-size: 40px; line-height: 1.15; letter-spacing: -.8px; color: #fff; }
+  h1 em, h2 em { font-style: normal; color: var(--accent2); }
+  .meta { color: var(--dim); font-size: 14px; margin-top: 12px; }
+  h2 { font-size: 26px; color: #fff; margin: 42px 0 12px; letter-spacing: -.3px; }
+  h3 { font-size: 19px; color: #fff; margin: 24px 0 8px; }
+  p, li { font-size: 17px; }
+  p { margin: 12px 0; }
+  ol, ul { padding-left: 24px; margin: 10px 0; }
+  li { margin: 6px 0; }
+  code, kbd { background: #2e2a26; border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; font-size: 15px; color: #fff; font-family: Consolas, 'SF Mono', monospace; }
+  .answer { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; margin: 24px 0; }
+  .answer b { color: #fff; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: #fff; font-weight: 600; }
+  .cta { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 26px; margin: 36px 0; display: flex; gap: 24px; align-items: center; }
+  .cta img { width: 200px; height: auto; border-radius: 10px; box-shadow: 0 16px 40px rgba(0,0,0,.5); flex: none; }
+  .cta h2 { margin-top: 0; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .btn { display: inline-block; border-radius: 10px; padding: 11px 18px; font-weight: 700; text-decoration: none; color: #fff; border: 1px solid #6b5f55; font-size: 15px; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); }
+  .note { color: var(--dim); font-size: 14px; }
+  footer { color: var(--dim); font-size: 13px; padding: 36px 0 50px; border-top: 1px solid var(--line); margin-top: 40px; }
+  footer a { color: var(--muted); }
+  @media (max-width: 640px) {
+    h1 { font-size: 30px; } h2 { font-size: 22px; }
+    nav .links { display: none; }
+    .cta { flex-direction: column; text-align: center; }
+    .cta .btns { justify-content: center; }
+  }
+  .langs { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; font-size: 13px; }
+  .langs a, .langs span { padding: 3px 9px; border: 1px solid var(--line, #34302b); border-radius: 999px; color: var(--muted, #cfc9bf); text-decoration: none; }
+  .langs span { color: var(--fg, #fff); border-color: var(--accent, #d97757); }
+</style>
+<link rel="alternate" hreflang="en" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-usage-limit-reset.html">
+<link rel="alternate" hreflang="sk" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/kedy-sa-resetuje-limit-claude.html">
+<link rel="alternate" hreflang="cs" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/kdy-se-resetuje-limit-claude.html">
+<link rel="alternate" hreflang="de" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/de/wann-wird-das-claude-limit-zurueckgesetzt.html">
+<link rel="alternate" hreflang="it" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/quando-si-resetta-il-limite-di-claude.html">
+<link rel="alternate" hreflang="fr" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/fr/quand-la-limite-claude-se-reinitialise.html">
+<link rel="alternate" hreflang="x-default" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-usage-limit-reset.html">
+</head>
+<body>
+<div class="wrap">
+<nav><a class="home" href="./"><img src="assets/icon.png" alt="">Usage Meter for Claude</a>
+  <div class="links"><a href="./#features">Features</a><a href="claude-usage-limits.html">Check your limits</a><a href="./#faq">FAQ</a><a href="privacy.html">Privacy</a></div></nav>
+
+<header>
+  <h1>When does the <em>Claude usage limit reset?</em></h1>
+  <p class="meta">Updated 24 November 2026 · 5 min read</p>
+  <div class="langs"><span lang="en">English</span><a href="sk/kedy-sa-resetuje-limit-claude.html" hreflang="sk" lang="sk">Slovenčina</a><a href="cs/kdy-se-resetuje-limit-claude.html" hreflang="cs" lang="cs">Čeština</a><a href="de/wann-wird-das-claude-limit-zurueckgesetzt.html" hreflang="de" lang="de">Deutsch</a><a href="it/quando-si-resetta-il-limite-di-claude.html" hreflang="it" lang="it">Italiano</a><a href="fr/quand-la-limite-claude-se-reinitialise.html" hreflang="fr" lang="fr">Français</a></div>
+</header>
+
+<div class="answer">
+  <b>Short answer:</b> the <b>5-hour session limit</b> resets <b>five hours after your first message</b> in that session. The <b>weekly limit</b> resets at a <b>fixed day and time assigned to your account</b> – the same every week, no matter when you started using Claude. You can see both exact reset times in <b>Settings → Usage</b> on claude.ai.
+</div>
+
+<h2>The two clocks: session and week</h2>
+<p>Claude Pro, Max and Ultra plans have two limits that run side by side, and each has its own reset:</p>
+<table>
+  <tr><th>Limit</th><th>When it resets</th></tr>
+  <tr><td>5-hour session limit</td><td>Five hours after the first message of the session, in full</td></tr>
+  <tr><td>Weekly limit (all models)</td><td>Once a week, at a fixed day and time assigned to your account</td></tr>
+  <tr><td>Weekly limit for the largest model (Max, Ultra)</td><td>Once a week – shown separately in Settings → Usage</td></tr>
+</table>
+<p>Hitting either one stops you until it resets. That's why you can be blocked even with plenty of session left – the weekly limit was reached first. Verified Ultra accounts have no 5-hour limit, only the weekly ones. More on the plans in <a href="claude-pro-vs-max-vs-ultra.html">Claude Pro vs Max vs Ultra</a>.</p>
+
+<h2>How the 5-hour session works</h2>
+<p>The session isn't a rolling window. It <b>starts when you send your first message</b>, and five hours later the whole limit is back. If you send nothing for a while after the reset, the next session only starts with your next message.</p>
+<p>Example: your first message is at 9:10. Whatever you use until 14:10 counts towards that session. At 14:10 the session limit resets – and a new session starts with the next message you send.</p>
+<p><b>Tip:</b> if you know you'll need a long block of work in the afternoon, a short message a few hours earlier starts the clock, so a fresh session is ready sooner.</p>
+<p>The Free plan also has a session-based limit that resets every five hours.</p>
+
+<h2>How the weekly reset works</h2>
+<p>The weekly limit doesn't count seven days from your first message. It resets at <b>a fixed time each week that is assigned to your account</b>, and that day and time stay the same regardless of when your subscription began. Two people on the same plan can therefore have different reset days.</p>
+<p>Because the weekly reset doesn't move, it pays to know how much of the week is left: 60 % used on day 2 is very different from 60 % used on day 6.</p>
+
+<h2>Where to see the exact reset time</h2>
+<ul>
+  <li><b>claude.ai → Settings → Usage</b> – "Current session" shows how much is used and how long until the reset; "Weekly limits" shows when the weekly limit resets, for all models and for the largest model if your plan has a separate limit.</li>
+  <li><b>Claude Code</b> – when you hit a limit, the message tells you whether it was the session or the weekly limit and when it resets. <code>/usage</code> shows your plan usage. More in <a href="claude-code-usage-limits.html">Claude Code usage limits explained</a>.</li>
+  <li><b>In your browser toolbar</b> – the free extension <a href="./">Usage Meter for Claude</a> shows the reset times all the time, without opening Settings.</li>
+</ul>
+<p>Claude Code, the desktop app, the phone and the chat share the same limits – so they also share the same reset times.</p>
+
+<h2>Can you reset the limit early?</h2>
+<ul>
+  <li><b>Limit resets:</b> Anthropic occasionally gives eligible plans a free <b>limit reset</b> – a 5-hour reset, a weekly reset or a reset for the largest model. If you have one, it's in <b>Settings → Usage → Limit resets</b> ("Reset for free"). You can use it before you hit the limit, but an unused reset <b>expires</b> on the date shown, and it isn't available from Claude Code in the terminal. Your regular weekly reset stays on its usual day and time.</li>
+  <li><b>Usage credits and bundles:</b> with usage credits turned on, you can keep working after a limit at pay-as-you-go prices, up to the monthly cap you set. They don't reset the limit and don't change when it resets.</li>
+  <li><b>Upgrading:</b> a higher plan's limits apply right away, but it isn't a reset.</li>
+</ul>
+<p>Otherwise you wait for the reset. While you wait, it helps to know <a href="why-claude-limit-runs-out.html">why the limit runs out so fast</a>, so the next session lasts longer.</p>
+
+<div class="cta">
+  <img src="assets/popup.png" alt="Usage Meter for Claude popup showing session and weekly usage with reset times">
+  <div>
+    <h2>See your reset times <em>at a glance</em></h2>
+    <p><b>Usage Meter for Claude</b> is a free browser extension that keeps your Claude usage on the toolbar icon. The popup shows when your session and weekly limits reset and forecasts when you'll run out at your current pace. You get a notification when a limit resets – and before a free limit reset expires, so you don't waste it.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib">Chrome</a>
+      <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog">Microsoft Edge</a>
+      <a class="btn" href="https://addons.mozilla.org/firefox/addon/usage-meter-for-claude-ai/">Firefox</a>
+    </div>
+    <p class="note">Works with Claude Pro, Max and Team. Nothing is sent to the developer – your data stays in your browser.</p>
+  </div>
+</div>
+
+<h2>Frequently asked questions</h2>
+<h3>When does the Claude 5-hour limit reset?</h3>
+<p>Five hours after the first message of the session. The window starts when you send your first message and then resets in full – it is not a rolling window.</p>
+<h3>When does the Claude weekly limit reset?</h3>
+<p>At a fixed day and time each week that is assigned to your account. It doesn't depend on when you start using Claude or when your subscription began. The exact time is shown in Settings → Usage on claude.ai.</p>
+<h3>Can I reset my Claude limit early?</h3>
+<p>Only if Anthropic has given your account a limit reset – then you can use it in Settings → Usage with "Reset for free" before it expires. Usage credits and bundles let you keep working, but they don't move the reset time.</p>
+<h3>Does Claude Code have a different reset time?</h3>
+<p>No. With a Pro, Max or Ultra plan, Claude Code shares the same session and weekly limits as claude.ai and Claude Desktop, so the reset times are the same.</p>
+<h3>Does upgrading my plan reset the limit?</h3>
+<p>It isn't a reset as such, but the new plan's higher limits apply right away.</p>
+
+<p class="note" style="margin-top:30px">Sources: Claude Help Center – <a href="https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work" rel="nofollow">How do usage and length limits work?</a>, <a href="https://support.claude.com/en/articles/9797557-usage-limit-best-practices" rel="nofollow">Usage limit best practices</a>, <a href="https://support.claude.com/en/articles/17007452" rel="nofollow">What is a limit reset?</a>, <a href="https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans" rel="nofollow">Manage usage credits for paid Claude plans</a>.</p>
+
+<footer>
+  <p><a href="./">Usage Meter for Claude</a> · <a href="claude-usage-limits.html">How to check your Claude usage limits</a> · <a href="why-claude-limit-runs-out.html">Why the Claude limit runs out so fast</a> · <a href="claude-pro-vs-max-vs-ultra.html">Claude Pro vs Max vs Ultra</a> · <a href="claude-code-usage-limits.html">Claude Code usage limits</a> · <a href="privacy.html">Privacy policy</a> · <a href="feedback.html?t=idea&amp;l=en">Suggest an improvement</a> · <a href="mailto:usagemeter.claude@gmail.com">usagemeter.claude@gmail.com</a></p>
+  <p style="margin-top:8px">Unofficial extension and guide, not affiliated with or endorsed by Anthropic. Claude is a trademark of Anthropic, PBC.</p>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quando si azzera il limite di utilizzo di Claude? Sessione di 5 ore e limiti settimanali</title>
+<meta name="description" content="Il limite di sessione di Claude si azzera 5 ore dopo il primo messaggio; il limite settimanale si azzera in un giorno e a un orario fissi assegnati al tuo account. Come vedere l'orario esatto dell'azzeramento e cosa fare nel frattempo.">
+<link rel="canonical" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/quando-si-resetta-il-limite-di-claude.html">
+<link rel="icon" href="../assets/icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quando si azzera il limite di utilizzo di Claude? Sessione di 5 ore e limiti settimanali">
+<meta property="og:description" content="Il limite di sessione di Claude si azzera 5 ore dopo il primo messaggio; il limite settimanale si azzera in un giorno e a un orario fissi assegnati al tuo account. Come vedere l'orario esatto dell'azzeramento e cosa fare nel frattempo.">
+<meta property="og:url" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/quando-si-resetta-il-limite-di-claude.html">
+<meta property="og:image" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"Quando si azzera il limite di utilizzo di Claude? Sessione di 5 ore e limiti settimanali","description":"Il limite di sessione di Claude si azzera 5 ore dopo il primo messaggio; il limite settimanale si azzera in un giorno e a un orario fissi assegnati al tuo account. Come vedere l'orario esatto dell'azzeramento e cosa fare nel frattempo.","inLanguage":"it","datePublished":"2026-11-24","dateModified":"2026-11-24","image":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png","author":{"@type":"Organization","name":"Usage Meter for Claude","url":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/"},"mainEntityOfPage":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/quando-si-resetta-il-limite-di-claude.html"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Quando si azzera il limite di 5 ore di Claude?","acceptedAnswer":{"@type":"Answer","text":"Cinque ore dopo il primo messaggio della sessione. La finestra parte quando invii il primo messaggio e poi si azzera completamente: non è una finestra mobile."}},{"@type":"Question","name":"Quando si azzera il limite settimanale di Claude?","acceptedAnswer":{"@type":"Answer","text":"Ogni settimana in un giorno e a un orario fissi assegnati al tuo account. Non dipende da quando inizi a usare Claude né da quando è partito il tuo abbonamento. L'orario esatto è indicato in Settings → Usage su claude.ai."}},{"@type":"Question","name":"Posso azzerare il mio limite di Claude in anticipo?","acceptedAnswer":{"@type":"Answer","text":"Solo se Anthropic ha concesso al tuo account un azzeramento del limite: in quel caso puoi usarlo in Settings → Usage con \"Reset for free\" prima che scada. I crediti di utilizzo e i pacchetti ti permettono di continuare a lavorare, ma non spostano l'orario dell'azzeramento."}},{"@type":"Question","name":"Claude Code ha un orario di azzeramento diverso?","acceptedAnswer":{"@type":"Answer","text":"No. Con un piano Pro, Max o Ultra, Claude Code condivide con claude.ai e Claude Desktop gli stessi limiti di sessione e settimanali, quindi gli orari di azzeramento sono gli stessi."}},{"@type":"Question","name":"Passare a un piano superiore azzera il limite?","acceptedAnswer":{"@type":"Answer","text":"Non è un azzeramento vero e proprio, ma i limiti più alti del nuovo piano valgono subito."}}]}]</script>
+<style>
+  :root { --bg: #1a1816; --card: #24211e; --line: #34302b; --fg: #fff; --text: #e2ddd5; --muted: #cfc9bf; --dim: #9d968c; --accent: #d97757; --accent2: #e08a6a; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: radial-gradient(circle at 85% 0, rgba(217,119,87,.25), transparent 35%) no-repeat, var(--bg); color: var(--text); font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; line-height: 1.65; }
+  a { color: var(--accent2); }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; align-items: center; gap: 10px; padding: 22px 0; font-weight: 600; }
+  nav a.home { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
+  nav img { width: 30px; height: 30px; }
+  nav .links { margin-left: auto; display: flex; gap: 22px; font-size: 14px; font-weight: 400; }
+  nav .links a { color: var(--muted); text-decoration: none; }
+  header { padding: 30px 0 10px; }
+  h1 { font-size: 40px; line-height: 1.15; letter-spacing: -.8px; color: #fff; }
+  h1 em, h2 em { font-style: normal; color: var(--accent2); }
+  .meta { color: var(--dim); font-size: 14px; margin-top: 12px; }
+  h2 { font-size: 26px; color: #fff; margin: 42px 0 12px; letter-spacing: -.3px; }
+  h3 { font-size: 19px; color: #fff; margin: 24px 0 8px; }
+  p, li { font-size: 17px; }
+  p { margin: 12px 0; }
+  ol, ul { padding-left: 24px; margin: 10px 0; }
+  li { margin: 6px 0; }
+  code, kbd { background: #2e2a26; border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; font-size: 15px; color: #fff; font-family: Consolas, 'SF Mono', monospace; }
+  .answer { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; margin: 24px 0; }
+  .answer b { color: #fff; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: #fff; font-weight: 600; }
+  .cta { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 26px; margin: 36px 0; display: flex; gap: 24px; align-items: center; }
+  .cta img { width: 200px; height: auto; border-radius: 10px; box-shadow: 0 16px 40px rgba(0,0,0,.5); flex: none; }
+  .cta h2 { margin-top: 0; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .btn { display: inline-block; border-radius: 10px; padding: 11px 18px; font-weight: 700; text-decoration: none; color: #fff; border: 1px solid #6b5f55; font-size: 15px; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); }
+  .note { color: var(--dim); font-size: 14px; }
+  footer { color: var(--dim); font-size: 13px; padding: 36px 0 50px; border-top: 1px solid var(--line); margin-top: 40px; }
+  footer a { color: var(--muted); }
+  @media (max-width: 640px) {
+    h1 { font-size: 30px; } h2 { font-size: 22px; }
+    nav .links { display: none; }
+    .cta { flex-direction: column; text-align: center; }
+    .cta .btns { justify-content: center; }
+  }
+  .langs { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; font-size: 13px; }
+  .langs a, .langs span { padding: 3px 9px; border: 1px solid var(--line, #34302b); border-radius: 999px; color: var(--muted, #cfc9bf); text-decoration: none; }
+  .langs span { color: var(--fg, #fff); border-color: var(--accent, #d97757); }
+</style>
+<link rel="alternate" hreflang="en" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-usage-limit-reset.html">
+<link rel="alternate" hreflang="sk" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/kedy-sa-resetuje-limit-claude.html">
+<link rel="alternate" hreflang="cs" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/kdy-se-resetuje-limit-claude.html">
+<link rel="alternate" hreflang="de" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/de/wann-wird-das-claude-limit-zurueckgesetzt.html">
+<link rel="alternate" hreflang="it" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/quando-si-resetta-il-limite-di-claude.html">
+<link rel="alternate" hreflang="fr" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/fr/quand-la-limite-claude-se-reinitialise.html">
+<link rel="alternate" hreflang="x-default" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-usage-limit-reset.html">
+</head>
+<body>
+<div class="wrap">
+<nav><a class="home" href="./"><img src="../assets/icon.png" alt="">Usage Meter for Claude</a>
+  <div class="links"><a href="./#features">Funzionalità</a><a href="come-controllare-i-limiti-di-claude.html">Controlla i tuoi limiti</a><a href="./#faq">FAQ</a><a href="privacy.html">Privacy</a></div></nav>
+
+<header>
+  <h1>Quando si azzera il <em>limite di utilizzo di Claude?</em></h1>
+  <p class="meta">Aggiornato il 24 novembre 2026 · Lettura di 5 minuti</p>
+  <div class="langs"><a href="../claude-usage-limit-reset.html" hreflang="en" lang="en">English</a><a href="../sk/kedy-sa-resetuje-limit-claude.html" hreflang="sk" lang="sk">Slovenčina</a><a href="../cs/kdy-se-resetuje-limit-claude.html" hreflang="cs" lang="cs">Čeština</a><a href="../de/wann-wird-das-claude-limit-zurueckgesetzt.html" hreflang="de" lang="de">Deutsch</a><span lang="it">Italiano</span><a href="../fr/quand-la-limite-claude-se-reinitialise.html" hreflang="fr" lang="fr">Français</a></div>
+</header>
+
+<div class="answer">
+  <b>In breve:</b> il <b>limite di sessione di 5 ore</b> si azzera <b>cinque ore dopo il primo messaggio</b> di quella sessione. Il <b>limite settimanale</b> si azzera in un <b>giorno e a un orario fissi assegnati al tuo account</b>, uguali ogni settimana, indipendentemente da quando hai iniziato a usare Claude. Entrambi gli orari esatti di azzeramento li trovi in <b>Settings → Usage</b> (Impostazioni → Utilizzo) su claude.ai.
+</div>
+
+<h2>I due orologi: sessione e settimana</h2>
+<p>I piani Claude Pro, Max e Ultra hanno due limiti che corrono in parallelo, e ognuno ha il proprio azzeramento:</p>
+<table>
+  <tr><th>Limite</th><th>Quando si azzera</th></tr>
+  <tr><td>Limite di sessione di 5 ore</td><td>Cinque ore dopo il primo messaggio della sessione, completamente</td></tr>
+  <tr><td>Limite settimanale (tutti i modelli)</td><td>Una volta a settimana, in un giorno e a un orario fissi assegnati al tuo account</td></tr>
+  <tr><td>Limite settimanale per il modello più grande (Max, Ultra)</td><td>Una volta a settimana: è indicato a parte in Settings → Usage</td></tr>
+</table>
+<p>Se raggiungi uno dei due, ti fermi finché non si azzera. Ecco perché puoi restare bloccato anche con molta sessione ancora disponibile: è stato raggiunto prima il limite settimanale. Gli account Ultra verificati non hanno il limite di 5 ore, solo quelli settimanali. Altro sui piani in <a href="confronto-claude-pro-max-ultra.html">Claude Pro vs Max vs Ultra</a>.</p>
+
+<h2>Come funziona la sessione di 5 ore</h2>
+<p>La sessione non è una finestra mobile. <b>Parte quando invii il primo messaggio</b> e, cinque ore dopo, il limite torna disponibile per intero. Se dopo l'azzeramento non invii nulla per un po', la sessione successiva inizia solo con il tuo prossimo messaggio.</p>
+<p>Esempio: il tuo primo messaggio è alle 9:10. Tutto ciò che usi fino alle 14:10 conta su quella sessione. Alle 14:10 il limite di sessione si azzera e una nuova sessione parte con il prossimo messaggio che invii.</p>
+<p><b>Consiglio:</b> se sai che nel pomeriggio ti servirà un lungo blocco di lavoro, un breve messaggio qualche ora prima fa partire l'orologio, così una sessione nuova sarà pronta prima.</p>
+<p>Anche il piano Free ha un limite basato sulla sessione che si azzera ogni cinque ore.</p>
+
+<h2>Come funziona l'azzeramento settimanale</h2>
+<p>Il limite settimanale non conta sette giorni dal tuo primo messaggio. Si azzera <b>ogni settimana a un orario fisso assegnato al tuo account</b>, e quel giorno e quell'orario restano gli stessi indipendentemente da quando è partito il tuo abbonamento. Due persone con lo stesso piano possono quindi avere giorni di azzeramento diversi.</p>
+<p>Visto che l'azzeramento settimanale non si sposta, conviene sapere quanta parte della settimana resta: il 60 % usato al secondo giorno è ben diverso dal 60 % usato al sesto.</p>
+
+<h2>Dove vedere l'orario esatto dell'azzeramento</h2>
+<ul>
+  <li><b>claude.ai → Settings → Usage</b>: "Current session" mostra quanto hai usato e quanto manca all'azzeramento; "Weekly limits" mostra quando si azzera il limite settimanale, per tutti i modelli e per il modello più grande se il tuo piano ha un limite separato.</li>
+  <li><b>Claude Code</b>: quando raggiungi un limite, il messaggio ti dice se si tratta del limite di sessione o di quello settimanale e quando si azzera. <code>/usage</code> mostra l'utilizzo del tuo piano. Altro in <a href="limiti-di-claude-code.html">Limiti di utilizzo di Claude Code</a>.</li>
+  <li><b>Nella barra degli strumenti del browser</b>: l'estensione gratuita <a href="./">Usage Meter for Claude</a> mostra sempre gli orari di azzeramento, senza aprire le impostazioni.</li>
+</ul>
+<p>Claude Code, l'app desktop, il telefono e la chat condividono gli stessi limiti, e quindi anche gli stessi orari di azzeramento.</p>
+
+<h2>Si può azzerare il limite in anticipo?</h2>
+<ul>
+  <li><b>Azzeramenti del limite:</b> di tanto in tanto Anthropic concede ai piani idonei un <b>azzeramento del limite</b> gratuito: un azzeramento delle 5 ore, uno settimanale o uno per il modello più grande. Se ne hai uno, lo trovi in <b>Settings → Usage → Limit resets</b> ("Reset for free"). Puoi usarlo anche prima di raggiungere il limite, ma un azzeramento non usato <b>scade</b> alla data indicata e non è disponibile da Claude Code nel terminale. Il tuo azzeramento settimanale regolare resta nel solito giorno e al solito orario.</li>
+  <li><b>Crediti di utilizzo e pacchetti:</b> con i crediti di utilizzo attivati puoi continuare a lavorare dopo un limite a prezzi a consumo, fino al tetto mensile che imposti tu. Non azzerano il limite e non cambiano quando si azzera.</li>
+  <li><b>Passare a un piano superiore:</b> i limiti di un piano più alto valgono subito, ma non è un azzeramento.</li>
+</ul>
+<p>Altrimenti aspetti l'azzeramento. Nel frattempo è utile capire <a href="perche-il-limite-di-claude-finisce-cosi-presto.html">perché il limite finisce così presto</a>, così la prossima sessione dura di più.</p>
+
+<div class="cta">
+  <img src="../assets/popup.png" alt="Popup di Usage Meter for Claude con l'utilizzo della sessione e quello settimanale e gli orari di azzeramento">
+  <div>
+    <h2>Vedi gli orari di azzeramento <em>a colpo d'occhio</em></h2>
+    <p><b>Usage Meter for Claude</b> è un'estensione gratuita per il browser che tiene il tuo utilizzo di Claude sull'icona nella barra degli strumenti. Il popup mostra quando si azzerano i limiti di sessione e settimanali e prevede quando li esaurirai al ritmo attuale. Ricevi una notifica quando un limite si azzera, e prima che scada un azzeramento gratuito del limite, così non lo sprechi.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib">Chrome</a>
+      <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog">Microsoft Edge</a>
+      <a class="btn" href="https://addons.mozilla.org/firefox/addon/usage-meter-for-claude-ai/">Firefox</a>
+    </div>
+    <p class="note">Funziona con Claude Pro, Max e Team. Allo sviluppatore non viene inviato nulla: i tuoi dati restano nel tuo browser.</p>
+  </div>
+</div>
+
+<h2>Domande frequenti</h2>
+<h3>Quando si azzera il limite di 5 ore di Claude?</h3>
+<p>Cinque ore dopo il primo messaggio della sessione. La finestra parte quando invii il primo messaggio e poi si azzera completamente: non è una finestra mobile.</p>
+<h3>Quando si azzera il limite settimanale di Claude?</h3>
+<p>Ogni settimana in un giorno e a un orario fissi assegnati al tuo account. Non dipende da quando inizi a usare Claude né da quando è partito il tuo abbonamento. L'orario esatto è indicato in Settings → Usage su claude.ai.</p>
+<h3>Posso azzerare il mio limite di Claude in anticipo?</h3>
+<p>Solo se Anthropic ha concesso al tuo account un azzeramento del limite: in quel caso puoi usarlo in Settings → Usage con "Reset for free" prima che scada. I crediti di utilizzo e i pacchetti ti permettono di continuare a lavorare, ma non spostano l'orario dell'azzeramento.</p>
+<h3>Claude Code ha un orario di azzeramento diverso?</h3>
+<p>No. Con un piano Pro, Max o Ultra, Claude Code condivide con claude.ai e Claude Desktop gli stessi limiti di sessione e settimanali, quindi gli orari di azzeramento sono gli stessi.</p>
+<h3>Passare a un piano superiore azzera il limite?</h3>
+<p>Non è un azzeramento vero e proprio, ma i limiti più alti del nuovo piano valgono subito.</p>
+
+<p class="note" style="margin-top:30px">Fonti (in inglese): Centro assistenza di Claude – <a href="https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work" rel="nofollow">How do usage and length limits work?</a>, <a href="https://support.claude.com/en/articles/9797557-usage-limit-best-practices" rel="nofollow">Usage limit best practices</a>, <a href="https://support.claude.com/en/articles/17007452" rel="nofollow">What is a limit reset?</a>, <a href="https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans" rel="nofollow">Manage usage credits for paid Claude plans</a>.</p>
+
+<footer>
+  <p><a href="./">Usage Meter for Claude</a> · <a href="come-controllare-i-limiti-di-claude.html">Come controllare i limiti di utilizzo di Claude</a> · <a href="perche-il-limite-di-claude-finisce-cosi-presto.html">Perché il limite di Claude finisce così presto</a> · <a href="confronto-claude-pro-max-ultra.html">Claude Pro vs Max vs Ultra</a> · <a href="limiti-di-claude-code.html">Limiti di utilizzo di Claude Code</a> · <a href="privacy.html">Informativa sulla privacy</a> · <a href="../feedback.html?t=idea&amp;l=it">Suggerisci un miglioramento</a> · <a href="mailto:usagemeter.claude@gmail.com">usagemeter.claude@gmail.com</a></p>
+  <p style="margin-top:8px">Estensione e guida non ufficiali, non affiliate né approvate da Anthropic. Claude è un marchio di Anthropic, PBC.</p>
+</footer>
+</div>
+</body>
+</html>

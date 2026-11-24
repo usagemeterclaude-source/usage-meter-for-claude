@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kedy sa resetuje limit v Claude? 5-hodinová relácia a týždenný limit</title>
+<meta name="description" content="Limit relácie v Claude sa obnoví 5 hodín po vašej prvej správe; týždenný limit sa obnovuje v pevný deň a čas, ktorý má priradený váš účet. Ako zistiť presný čas obnovenia a čo robiť dovtedy.">
+<link rel="canonical" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/kedy-sa-resetuje-limit-claude.html">
+<link rel="icon" href="../assets/icon.png">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kedy sa resetuje limit v Claude? 5-hodinová relácia a týždenný limit">
+<meta property="og:description" content="Limit relácie v Claude sa obnoví 5 hodín po vašej prvej správe; týždenný limit sa obnovuje v pevný deň a čas, ktorý má priradený váš účet. Ako zistiť presný čas obnovenia a čo robiť dovtedy.">
+<meta property="og:url" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/kedy-sa-resetuje-limit-claude.html">
+<meta property="og:image" content="https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"Kedy sa resetuje limit v Claude? 5-hodinová relácia a týždenný limit","description":"Limit relácie v Claude sa obnoví 5 hodín po vašej prvej správe; týždenný limit sa obnovuje v pevný deň a čas, ktorý má priradený váš účet. Ako zistiť presný čas obnovenia a čo robiť dovtedy.","inLanguage":"sk","datePublished":"2026-11-24","dateModified":"2026-11-24","image":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/assets/og.png","author":{"@type":"Organization","name":"Usage Meter for Claude","url":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/"},"mainEntityOfPage":"https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/kedy-sa-resetuje-limit-claude.html"},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Kedy sa obnoví 5-hodinový limit v Claude?","acceptedAnswer":{"@type":"Answer","text":"Päť hodín po prvej správe relácie. Okno sa začína, keď pošlete prvú správu, a potom sa obnoví celé – nie je to kĺzavé okno."}},{"@type":"Question","name":"Kedy sa obnoví týždenný limit v Claude?","acceptedAnswer":{"@type":"Answer","text":"Každý týždeň v pevný deň a čas, ktorý má priradený váš účet. Nezáleží na tom, kedy začnete Claude používať ani kedy sa začalo vaše predplatné. Presný čas nájdete na claude.ai v Settings → Usage."}},{"@type":"Question","name":"Môžem limit v Claude obnoviť skôr?","acceptedAnswer":{"@type":"Answer","text":"Len ak vám Anthropic pridelil obnovenie limitu (limit reset) – potom ho môžete pred vypršaním použiť v Settings → Usage tlačidlom \"Reset for free\". Kredity na používanie a balíky vám umožnia pracovať ďalej, ale čas obnovenia neposunú."}},{"@type":"Question","name":"Má Claude Code iný čas obnovenia?","acceptedAnswer":{"@type":"Answer","text":"Nie. S plánom Pro, Max alebo Ultra má Claude Code ten istý limit relácie aj týždenný limit ako claude.ai a Claude Desktop, takže aj časy obnovenia sú rovnaké."}},{"@type":"Question","name":"Obnoví sa limit, keď prejdem na vyšší plán?","acceptedAnswer":{"@type":"Answer","text":"Nie je to obnovenie v pravom zmysle, ale vyššie limity nového plánu platia hneď."}}]}]</script>
+<style>
+  :root { --bg: #1a1816; --card: #24211e; --line: #34302b; --fg: #fff; --text: #e2ddd5; --muted: #cfc9bf; --dim: #9d968c; --accent: #d97757; --accent2: #e08a6a; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: radial-gradient(circle at 85% 0, rgba(217,119,87,.25), transparent 35%) no-repeat, var(--bg); color: var(--text); font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif; line-height: 1.65; }
+  a { color: var(--accent2); }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  nav { display: flex; align-items: center; gap: 10px; padding: 22px 0; font-weight: 600; }
+  nav a.home { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; }
+  nav img { width: 30px; height: 30px; }
+  nav .links { margin-left: auto; display: flex; gap: 22px; font-size: 14px; font-weight: 400; }
+  nav .links a { color: var(--muted); text-decoration: none; }
+  header { padding: 30px 0 10px; }
+  h1 { font-size: 40px; line-height: 1.15; letter-spacing: -.8px; color: #fff; }
+  h1 em, h2 em { font-style: normal; color: var(--accent2); }
+  .meta { color: var(--dim); font-size: 14px; margin-top: 12px; }
+  h2 { font-size: 26px; color: #fff; margin: 42px 0 12px; letter-spacing: -.3px; }
+  h3 { font-size: 19px; color: #fff; margin: 24px 0 8px; }
+  p, li { font-size: 17px; }
+  p { margin: 12px 0; }
+  ol, ul { padding-left: 24px; margin: 10px 0; }
+  li { margin: 6px 0; }
+  code, kbd { background: #2e2a26; border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; font-size: 15px; color: #fff; font-family: Consolas, 'SF Mono', monospace; }
+  .answer { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 22px; margin: 24px 0; }
+  .answer b { color: #fff; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 16px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: #fff; font-weight: 600; }
+  .cta { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 26px; margin: 36px 0; display: flex; gap: 24px; align-items: center; }
+  .cta img { width: 200px; height: auto; border-radius: 10px; box-shadow: 0 16px 40px rgba(0,0,0,.5); flex: none; }
+  .cta h2 { margin-top: 0; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .btn { display: inline-block; border-radius: 10px; padding: 11px 18px; font-weight: 700; text-decoration: none; color: #fff; border: 1px solid #6b5f55; font-size: 15px; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); }
+  .note { color: var(--dim); font-size: 14px; }
+  footer { color: var(--dim); font-size: 13px; padding: 36px 0 50px; border-top: 1px solid var(--line); margin-top: 40px; }
+  footer a { color: var(--muted); }
+  @media (max-width: 640px) {
+    h1 { font-size: 30px; } h2 { font-size: 22px; }
+    nav .links { display: none; }
+    .cta { flex-direction: column; text-align: center; }
+    .cta .btns { justify-content: center; }
+  }
+  .langs { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; font-size: 13px; }
+  .langs a, .langs span { padding: 3px 9px; border: 1px solid var(--line, #34302b); border-radius: 999px; color: var(--muted, #cfc9bf); text-decoration: none; }
+  .langs span { color: var(--fg, #fff); border-color: var(--accent, #d97757); }
+</style>
+<link rel="alternate" hreflang="en" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-usage-limit-reset.html">
+<link rel="alternate" hreflang="sk" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/kedy-sa-resetuje-limit-claude.html">
+<link rel="alternate" hreflang="cs" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/kdy-se-resetuje-limit-claude.html">
+<link rel="alternate" hreflang="de" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/de/wann-wird-das-claude-limit-zurueckgesetzt.html">
+<link rel="alternate" hreflang="it" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/quando-si-resetta-il-limite-di-claude.html">
+<link rel="alternate" hreflang="fr" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/fr/quand-la-limite-claude-se-reinitialise.html">
+<link rel="alternate" hreflang="x-default" href="https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-usage-limit-reset.html">
+</head>
+<body>
+<div class="wrap">
+<nav><a class="home" href="./"><img src="../assets/icon.png" alt="">Usage Meter for Claude</a>
+  <div class="links"><a href="./#features">Funkcie</a><a href="ako-zistit-limity-claude.html">Ako zistiť limity</a><a href="./#faq">Časté otázky</a><a href="privacy.html">Súkromie</a></div></nav>
+
+<header>
+  <h1>Kedy sa <em>resetuje limit v Claude?</em></h1>
+  <p class="meta">Aktualizované 24. novembra 2026 · 5 min čítania</p>
+  <div class="langs"><a href="../claude-usage-limit-reset.html" hreflang="en" lang="en">English</a><span lang="sk">Slovenčina</span><a href="../cs/kdy-se-resetuje-limit-claude.html" hreflang="cs" lang="cs">Čeština</a><a href="../de/wann-wird-das-claude-limit-zurueckgesetzt.html" hreflang="de" lang="de">Deutsch</a><a href="../it/quando-si-resetta-il-limite-di-claude.html" hreflang="it" lang="it">Italiano</a><a href="../fr/quand-la-limite-claude-se-reinitialise.html" hreflang="fr" lang="fr">Français</a></div>
+</header>
+
+<div class="answer">
+  <b>Stručne:</b> <b>5-hodinový limit relácie</b> sa obnoví <b>päť hodín po vašej prvej správe</b> v danej relácii. <b>Týždenný limit</b> sa obnovuje v <b>pevný deň a čas, ktorý má priradený váš účet</b> – každý týždeň rovnako, bez ohľadu na to, kedy ste začali Claude používať. Oba presné časy obnovenia uvidíte na claude.ai v <b>Settings → Usage</b>.
+</div>
+
+<h2>Dva odpočty: relácia a týždeň</h2>
+<p>Plány Claude Pro, Max a Ultra majú dva limity, ktoré bežia súbežne, a každý sa obnovuje samostatne:</p>
+<table>
+  <tr><th>Limit</th><th>Kedy sa obnoví</th></tr>
+  <tr><td>5-hodinový limit relácie</td><td>Päť hodín po prvej správe relácie, celý naraz</td></tr>
+  <tr><td>Týždenný limit (všetky modely)</td><td>Raz za týždeň, v pevný deň a čas priradený vášmu účtu</td></tr>
+  <tr><td>Týždenný limit pre najväčší model (Max, Ultra)</td><td>Raz za týždeň – v Settings → Usage sa zobrazuje samostatne</td></tr>
+</table>
+<p>Keď narazíte na ktorýkoľvek z nich, zastaví vás až do jeho obnovenia. Preto vás môže Claude zastaviť, aj keď vám z relácie zostáva ešte veľa – skôr ste vyčerpali týždenný limit. Overené účty Ultra nemajú 5-hodinový limit, len týždenné. Viac o plánoch nájdete v článku <a href="porovnanie-claude-pro-max-ultra.html">Claude Pro vs Max vs Ultra</a>.</p>
+
+<h2>Ako funguje 5-hodinová relácia</h2>
+<p>Relácia nie je kĺzavé okno. <b>Začína sa, keď pošlete prvú správu</b>, a po piatich hodinách máte k dispozícii znova celý limit. Ak po obnovení chvíľu nič nepošlete, ďalšia relácia sa začne až vašou ďalšou správou.</p>
+<p>Príklad: prvú správu pošlete o 9:10. Všetko, čo minete do 14:10, sa započíta do tejto relácie. O 14:10 sa limit relácie obnoví – a nová relácia sa začne ďalšou správou, ktorú pošlete.</p>
+<p><b>Tip:</b> ak viete, že popoludní budete potrebovať dlhší blok práce, krátka správa o pár hodín skôr spustí odpočet, takže nová relácia bude k dispozícii skôr.</p>
+<p>Aj plán Free má limit založený na reláciách, ktorý sa obnovuje každých päť hodín.</p>
+
+<h2>Ako funguje týždenné obnovenie</h2>
+<p>Týždenný limit sa nepočíta sedem dní od vašej prvej správy. Obnovuje sa <b>každý týždeň v pevný čas, ktorý má priradený váš účet</b>, a tento deň a čas zostávajú rovnaké bez ohľadu na to, kedy sa začalo vaše predplatné. Dvaja ľudia s rovnakým plánom preto môžu mať obnovenie v iný deň.</p>
+<p>Keďže sa týždenné obnovenie neposúva, oplatí sa vedieť, koľko z týždňa ešte zostáva: 60 % minutých na druhý deň je niečo úplne iné ako 60 % minutých na šiesty deň.</p>
+
+<h2>Kde zistiť presný čas obnovenia</h2>
+<ul>
+  <li><b>claude.ai → Settings → Usage</b> – „Current session“ ukazuje, koľko ste minuli a o koľko sa limit obnoví; „Weekly limits“ ukazuje, kedy sa obnoví týždenný limit – pre všetky modely a pre najväčší model, ak má váš plán samostatný limit.</li>
+  <li><b>Claude Code</b> – keď narazíte na limit, správa vám povie, či išlo o limit relácie alebo týždenný limit a kedy sa obnoví. <code>/usage</code> ukáže spotrebu vášho plánu. Viac v článku <a href="limity-claude-code.html">Limity Claude Code</a>.</li>
+  <li><b>V paneli nástrojov prehliadača</b> – bezplatné rozšírenie <a href="./">Usage Meter for Claude</a> ukazuje časy obnovenia neustále, bez otvárania nastavení.</li>
+</ul>
+<p>Claude Code, aplikácia pre počítač, telefón aj chat zdieľajú tie isté limity – a teda aj tie isté časy obnovenia.</p>
+
+<h2>Dá sa limit obnoviť skôr?</h2>
+<ul>
+  <li><b>Obnovenia limitu (limit resets):</b> Anthropic občas dá oprávneným plánom bezplatné <b>obnovenie limitu</b> – 5-hodinové, týždenné alebo obnovenie pre najväčší model. Ak ho máte, nájdete ho v <b>Settings → Usage → Limit resets</b> („Reset for free“). Môžete ho použiť ešte predtým, než na limit narazíte, ale nepoužité obnovenie <b>vyprší</b> k uvedenému dátumu a z Claude Code v termináli ho použiť nemôžete. Vaše bežné týždenné obnovenie zostáva v obvyklý deň a čas.</li>
+  <li><b>Kredity na používanie a balíky:</b> so zapnutými kreditmi na používanie môžete po dosiahnutí limitu pracovať ďalej za ceny podľa skutočného využitia, až do mesačného stropu, ktorý si nastavíte. Limit neobnovujú a nemenia ani čas jeho obnovenia.</li>
+  <li><b>Prechod na vyšší plán:</b> limity vyššieho plánu platia hneď, ale nie je to obnovenie.</li>
+</ul>
+<p>Inak počkáte na obnovenie. Kým čakáte, oplatí sa vedieť, <a href="preco-sa-limit-claude-minie-tak-rychlo.html">prečo sa limit minie tak rýchlo</a>, aby vám ďalšia relácia vydržala dlhšie.</p>
+
+<div class="cta">
+  <img src="../assets/popup.png" alt="Vyskakovacie okno Usage Meter for Claude so spotrebou relácie a týždňa a časmi obnovenia">
+  <div>
+    <h2>Časy obnovenia <em>na prvý pohľad</em></h2>
+    <p><b>Usage Meter for Claude</b> je bezplatné rozšírenie prehliadača, ktoré ukazuje vašu spotrebu v Claude na ikone v paneli nástrojov. Vyskakovacie okno ukazuje, kedy sa obnoví limit relácie a týždenný limit, a predpovedá, kedy ho pri súčasnom tempe miniete. Upozornenie dostanete, keď sa limit obnoví – a aj predtým, než vyprší bezplatné obnovenie limitu, aby ste oň neprišli.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://chromewebstore.google.com/detail/jligjaaoimlmiplpkofebackmpgnjgib">Chrome</a>
+      <a class="btn" href="https://microsoftedge.microsoft.com/addons/detail/bifgmogjmocglmlbkmgmcjnepfjochog">Microsoft Edge</a>
+      <a class="btn" href="https://addons.mozilla.org/firefox/addon/usage-meter-for-claude-ai/">Firefox</a>
+    </div>
+    <p class="note">Funguje s Claude Pro, Max a Team. Vývojárovi sa nič neposiela – vaše údaje zostávajú vo vašom prehliadači.</p>
+  </div>
+</div>
+
+<h2>Časté otázky</h2>
+<h3>Kedy sa obnoví 5-hodinový limit v Claude?</h3>
+<p>Päť hodín po prvej správe relácie. Okno sa začína, keď pošlete prvú správu, a potom sa obnoví celé – nie je to kĺzavé okno.</p>
+<h3>Kedy sa obnoví týždenný limit v Claude?</h3>
+<p>Každý týždeň v pevný deň a čas, ktorý má priradený váš účet. Nezáleží na tom, kedy začnete Claude používať ani kedy sa začalo vaše predplatné. Presný čas nájdete na claude.ai v Settings → Usage.</p>
+<h3>Môžem limit v Claude obnoviť skôr?</h3>
+<p>Len ak vám Anthropic pridelil obnovenie limitu (limit reset) – potom ho môžete pred vypršaním použiť v Settings → Usage tlačidlom „Reset for free“. Kredity na používanie a balíky vám umožnia pracovať ďalej, ale čas obnovenia neposunú.</p>
+<h3>Má Claude Code iný čas obnovenia?</h3>
+<p>Nie. S plánom Pro, Max alebo Ultra má Claude Code ten istý limit relácie aj týždenný limit ako claude.ai a Claude Desktop, takže aj časy obnovenia sú rovnaké.</p>
+<h3>Obnoví sa limit, keď prejdem na vyšší plán?</h3>
+<p>Nie je to obnovenie v pravom zmysle, ale vyššie limity nového plánu platia hneď.</p>
+
+<p class="note" style="margin-top:30px">Zdroje (v angličtine): Centrum pomoci Claude – <a href="https://support.claude.com/en/articles/11647753-how-do-usage-and-length-limits-work" rel="nofollow">How do usage and length limits work?</a>, <a href="https://support.claude.com/en/articles/9797557-usage-limit-best-practices" rel="nofollow">Usage limit best practices</a>, <a href="https://support.claude.com/en/articles/17007452" rel="nofollow">What is a limit reset?</a>, <a href="https://support.claude.com/en/articles/12429409-manage-usage-credits-for-paid-claude-plans" rel="nofollow">Manage usage credits for paid Claude plans</a>.</p>
+
+<footer>
+  <p><a href="./">Usage Meter for Claude</a> · <a href="ako-zistit-limity-claude.html">Ako zistiť svoje limity v Claude</a> · <a href="preco-sa-limit-claude-minie-tak-rychlo.html">Prečo sa limit v Claude minie tak rýchlo</a> · <a href="porovnanie-claude-pro-max-ultra.html">Claude Pro vs Max vs Ultra</a> · <a href="limity-claude-code.html">Limity Claude Code</a> · <a href="privacy.html">Zásady ochrany súkromia</a> · <a href="../feedback.html?t=idea&amp;l=sk">Navrhnúť vylepšenie</a> · <a href="mailto:usagemeter.claude@gmail.com">usagemeter.claude@gmail.com</a></p>
+  <p style="margin-top:8px">Neoficiálne rozšírenie a návod, nie je prepojené so spoločnosťou Anthropic ani ňou schválené. Claude je ochranná známka spoločnosti Anthropic, PBC.</p>
+</footer>
+</div>
+</body>
+</html>

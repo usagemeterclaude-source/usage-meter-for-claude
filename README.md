@@ -34,6 +34,7 @@ The extension only reads your own usage percentages from claude.ai using the ses
 - [Why do I hit the Claude usage limit so fast? 10 reasons and fixes](https://usagemeterclaude-source.github.io/usage-meter-for-claude/why-claude-limit-runs-out.html)
 - [Claude Pro vs Max vs Ultra: how much usage do you get?](https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-pro-vs-max-vs-ultra.html)
 - [Claude Code usage limits explained](https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-code-usage-limits.html)
+- [When does the Claude usage limit reset?](https://usagemeterclaude-source.github.io/usage-meter-for-claude/claude-usage-limit-reset.html)
 
 Also in [Slovenčina](https://usagemeterclaude-source.github.io/usage-meter-for-claude/sk/) · [Čeština](https://usagemeterclaude-source.github.io/usage-meter-for-claude/cs/) · [Deutsch](https://usagemeterclaude-source.github.io/usage-meter-for-claude/de/) · [Italiano](https://usagemeterclaude-source.github.io/usage-meter-for-claude/it/) · [Français](https://usagemeterclaude-source.github.io/usage-meter-for-claude/fr/)
 
